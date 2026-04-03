@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Data Integration | Systems Ethology</title>
+  <meta name="description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Data Integration | Systems Ethology" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="github-repo" content="byandell/ewing_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Data Integration | Systems Ethology" />
+  
+  <meta name="twitter:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  
+
+<meta name="author" content="Bland Ewing, Brian S Yandell, James F Barbieri, Robert F Luck, Lisa D Forster" />
+
+
+<meta name="date" content="2026-04-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sim.html"/>
+<link rel="next" href="biology-of-red-scale-and-its-parasitoids-redscale.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative Population Ethology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="qpe.html"><a href="qpe.html"><i class="fa fa-check"></i><b>1</b> Why Quantitative Population Ethology?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="qpe.html"><a href="qpe.html#maleable-tools-for-the-field-biologists"><i class="fa fa-check"></i><b>1.1</b> Maleable Tools for the Field Biologists</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="qpe.html"><a href="qpe.html#tying-simulations-to-field-data"><i class="fa fa-check"></i><b>1.1.1</b> Tying simulations to field data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="qpe.html"><a href="qpe.html#simulating-millions-of-organisms"><i class="fa fa-check"></i><b>1.2</b> Simulating Millions of Organisms</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="qpe.html"><a href="qpe.html#limitations-of-brute-force-computing"><i class="fa fa-check"></i><b>1.2.1</b> Limitations of brute force computing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="qpe.html"><a href="qpe.html#loose-coupling-of-model-cascades"><i class="fa fa-check"></i><b>1.2.2</b> Loose coupling of model cascades</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="qpe.html"><a href="qpe.html#from-individual-behavior-to-evolution"><i class="fa fa-check"></i><b>1.3</b> From Individual Behavior to Evolution</a></li>
+<li class="chapter" data-level="1.4" data-path="qpe.html"><a href="qpe.html#discussion-from-qpe"><i class="fa fa-check"></i><b>1.4</b> Discussion from QPE</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="classical.html"><a href="classical.html"><i class="fa fa-check"></i><b>2</b> Limitations of Classical Models</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="classical.html"><a href="classical.html#mathematical-biology"><i class="fa fa-check"></i><b>2.1</b> Mathematical Biology</a></li>
+<li class="chapter" data-level="2.2" data-path="classical.html"><a href="classical.html#biology-vs.-physics"><i class="fa fa-check"></i><b>2.2</b> Biology vs. Physics</a></li>
+<li class="chapter" data-level="2.3" data-path="classical.html"><a href="classical.html#predator-prey-models"><i class="fa fa-check"></i><b>2.3</b> Predator-Prey Models</a></li>
+<li class="chapter" data-level="2.4" data-path="classical.html"><a href="classical.html#classical-differential-equation-models"><i class="fa fa-check"></i><b>2.4</b> Classical Differential Equation Models</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="classical.html"><a href="classical.html#early-work-the-holling-predation-studies"><i class="fa fa-check"></i><b>2.4.1</b> Early Work: The Holling Predation Studies</a></li>
+<li class="chapter" data-level="2.4.2" data-path="classical.html"><a href="classical.html#lotka-volterra-leslie-matrices"><i class="fa fa-check"></i><b>2.4.2</b> Lotka-Volterra, Leslie matrices</a></li>
+<li class="chapter" data-level="2.4.3" data-path="classical.html"><a href="classical.html#time-and-phase-space"><i class="fa fa-check"></i><b>2.4.3</b> Time and phase space</a></li>
+<li class="chapter" data-level="2.4.4" data-path="classical.html"><a href="classical.html#stable-cycles-and-chaos"><i class="fa fa-check"></i><b>2.4.4</b> Stable cycles and chaos</a></li>
+<li class="chapter" data-level="2.4.5" data-path="classical.html"><a href="classical.html#quadratic-and-linear-equations-in-optimization-research"><i class="fa fa-check"></i><b>2.4.5</b> Quadratic and Linear Equations in Optimization Research</a></li>
+<li class="chapter" data-level="2.4.6" data-path="classical.html"><a href="classical.html#limitations"><i class="fa fa-check"></i><b>2.4.6</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="classical.html"><a href="classical.html#life-tables-and-competing-risks"><i class="fa fa-check"></i><b>2.5</b> Life tables and competing risks</a></li>
+<li class="chapter" data-level="2.6" data-path="classical.html"><a href="classical.html#synchronized-generations"><i class="fa fa-check"></i><b>2.6</b> Synchronized generations</a></li>
+<li class="chapter" data-level="2.7" data-path="classical.html"><a href="classical.html#time-driven-simulation-models"><i class="fa fa-check"></i><b>2.7</b> Time Driven Simulation Models</a></li>
+<li class="chapter" data-level="2.8" data-path="classical.html"><a href="classical.html#population-size-continuous-or-discrete"><i class="fa fa-check"></i><b>2.8</b> Population size: continuous or discrete</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="classical.html"><a href="classical.html#time-almost-always-one-unit"><i class="fa fa-check"></i><b>2.8.1</b> Time almost always one unit</a></li>
+<li class="chapter" data-level="2.8.2" data-path="classical.html"><a href="classical.html#stochastic-dynamic-systems"><i class="fa fa-check"></i><b>2.8.2</b> Stochastic dynamic systems</a></li>
+<li class="chapter" data-level="2.8.3" data-path="classical.html"><a href="classical.html#discrete-time-stochastic-petri-nets"><i class="fa fa-check"></i><b>2.8.3</b> Discrete time stochastic Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="classical.html"><a href="classical.html#event-driven-petri-nets"><i class="fa fa-check"></i><b>2.9</b> Event-driven Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="field-biologists-and-the-collection-of-data-field.html"><a href="field-biologists-and-the-collection-of-data-field.html"><i class="fa fa-check"></i><b>3</b> Field Biologists and the Collection of Data {#field}}</a></li>
+<li class="chapter" data-level="4" data-path="prob.html"><a href="prob.html"><i class="fa fa-check"></i><b>4</b> Probabilistic Nature of Individual Behavior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prob.html"><a href="prob.html#properties-of-an-individual"><i class="fa fa-check"></i><b>4.1</b> Properties of an individual</a></li>
+<li class="chapter" data-level="4.2" data-path="prob.html"><a href="prob.html#interactions-among-individuals-in-community"><i class="fa fa-check"></i><b>4.2</b> Interactions among individuals in community</a></li>
+<li class="chapter" data-level="4.3" data-path="prob.html"><a href="prob.html#field-sampling-process"><i class="fa fa-check"></i><b>4.3</b> Field sampling process</a></li>
+<li class="chapter" data-level="4.4" data-path="prob.html"><a href="prob.html#quantization-of-eventsstates"><i class="fa fa-check"></i><b>4.4</b> Quantization of events/states</a></li>
+<li class="chapter" data-level="4.5" data-path="prob.html"><a href="prob.html#quantization-of-timespace"><i class="fa fa-check"></i><b>4.5</b> Quantization of time/space</a></li>
+<li class="chapter" data-level="4.6" data-path="prob.html"><a href="prob.html#heisenberg-uncertainty-principle"><i class="fa fa-check"></i><b>4.6</b> Heisenberg uncertainty principle</a></li>
+<li class="chapter" data-level="4.7" data-path="prob.html"><a href="prob.html#games-of-skill-and-chance"><i class="fa fa-check"></i><b>4.7</b> Games of Skill and Chance</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="prob.html"><a href="prob.html#backgammon"><i class="fa fa-check"></i><b>4.7.1</b> Backgammon</a></li>
+<li class="chapter" data-level="4.7.2" data-path="prob.html"><a href="prob.html#bridge"><i class="fa fa-check"></i><b>4.7.2</b> Bridge</a></li>
+<li class="chapter" data-level="4.7.3" data-path="prob.html"><a href="prob.html#chess"><i class="fa fa-check"></i><b>4.7.3</b> Chess</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="event.html"><a href="event.html"><i class="fa fa-check"></i><b>5</b> Event-Driven Competing Risks Structure</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="event.html"><a href="event.html#event-driven-considerations-for-living-systems"><i class="fa fa-check"></i><b>5.1</b> Event-Driven Considerations for Living Systems</a></li>
+<li class="chapter" data-level="5.2" data-path="event.html"><a href="event.html#minimization-structure-within-across-individuals"><i class="fa fa-check"></i><b>5.2</b> Minimization structure within, across individuals</a></li>
+<li class="chapter" data-level="5.3" data-path="event.html"><a href="event.html#modelling-event-to-event"><i class="fa fa-check"></i><b>5.3</b> Modelling event to event</a></li>
+<li class="chapter" data-level="5.4" data-path="event.html"><a href="event.html#non-homogeneous-poisson-process-rebuilt-at-every-event"><i class="fa fa-check"></i><b>5.4</b> Non-homogeneous Poisson process rebuilt at every event</a></li>
+<li class="chapter" data-level="5.5" data-path="event.html"><a href="event.html#event-span-resolution"><i class="fa fa-check"></i><b>5.5</b> Event, span, resolution</a></li>
+<li class="chapter" data-level="5.6" data-path="event.html"><a href="event.html#futureimmediatepending-events"><i class="fa fa-check"></i><b>5.6</b> Future/immediate/pending events</a></li>
+<li class="chapter" data-level="5.7" data-path="event.html"><a href="event.html#competing-risks-for-life-events"><i class="fa fa-check"></i><b>5.7</b> Competing Risks for Life Events</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="event.html"><a href="event.html#competing-risk-structure"><i class="fa fa-check"></i><b>5.7.1</b> Competing risk structure</a></li>
+<li class="chapter" data-level="5.7.2" data-path="event.html"><a href="event.html#time-depends-on-events"><i class="fa fa-check"></i><b>5.7.2</b> Time depends on events</a></li>
+<li class="chapter" data-level="5.7.3" data-path="event.html"><a href="event.html#event-structure-for-individual"><i class="fa fa-check"></i><b>5.7.3</b> Event structure for individual</a></li>
+<li class="chapter" data-level="5.7.4" data-path="event.html"><a href="event.html#five-dimensional-parameterization"><i class="fa fa-check"></i><b>5.7.4</b> Five-dimensional parameterization</a></li>
+<li class="chapter" data-level="5.7.5" data-path="event.html"><a href="event.html#handling-immediate-events"><i class="fa fa-check"></i><b>5.7.5</b> Handling immediate events</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sim.html"><a href="sim.html"><i class="fa fa-check"></i><b>6</b> Simulation Mechanics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sim.html"><a href="sim.html#choice-of-modeling-system"><i class="fa fa-check"></i><b>6.1</b> Choice of Modeling System</a></li>
+<li class="chapter" data-level="6.2" data-path="sim.html"><a href="sim.html#cubic-splines"><i class="fa fa-check"></i><b>6.2</b> Cubic splines</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="sim.html"><a href="sim.html#time-to-event-based-on-data-or-intuition"><i class="fa fa-check"></i><b>6.2.1</b> Time to event based on data or intuition</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sim.html"><a href="sim.html#translating-time-to-degree-days-and-back"><i class="fa fa-check"></i><b>6.2.2</b> Translating time to degree-days and back</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sim.html"><a href="sim.html#spatial-components"><i class="fa fa-check"></i><b>6.3</b> Spatial components</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="sim.html"><a href="sim.html#tridiagonal-coordinate-system"><i class="fa fa-check"></i><b>6.3.1</b> Tridiagonal coordinate system</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sim.html"><a href="sim.html#sierpinski-gasket"><i class="fa fa-check"></i><b>6.3.2</b> Sierpinski gasket</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sim.html"><a href="sim.html#icosohedrontriangular-cylinder-for-objects"><i class="fa fa-check"></i><b>6.3.3</b> Icosohedron/triangular cylinder for objects</a></li>
+<li class="chapter" data-level="6.3.4" data-path="sim.html"><a href="sim.html#smooth-integration-between-triangles"><i class="fa fa-check"></i><b>6.3.4</b> Smooth integration between triangles</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="sim.html"><a href="sim.html#priority-queues"><i class="fa fa-check"></i><b>6.4</b> Priority queues</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="sim.html"><a href="sim.html#partial-ordering-of-individuals-based-on-next-future-event"><i class="fa fa-check"></i><b>6.4.1</b> Partial ordering of individuals based on next future event</a></li>
+<li class="chapter" data-level="6.4.2" data-path="sim.html"><a href="sim.html#dynamic-storage-allocation"><i class="fa fa-check"></i><b>6.4.2</b> Dynamic storage allocation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sim.html"><a href="sim.html#pseudo-randomization"><i class="fa fa-check"></i><b>6.5</b> Pseudo-Randomization</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="sim.html"><a href="sim.html#generalized-feedback-shift-registers"><i class="fa fa-check"></i><b>6.5.1</b> Generalized feedback shift registers</a></li>
+<li class="chapter" data-level="6.5.2" data-path="sim.html"><a href="sim.html#exponential-random-values"><i class="fa fa-check"></i><b>6.5.2</b> Exponential random values</a></li>
+<li class="chapter" data-level="6.5.3" data-path="sim.html"><a href="sim.html#sierpinski-gasket-order-direction"><i class="fa fa-check"></i><b>6.5.3</b> Sierpinski gasket: order, direction</a></li>
+<li class="chapter" data-level="6.5.4" data-path="sim.html"><a href="sim.html#fractal-nature-of-spatial-search-algorithms"><i class="fa fa-check"></i><b>6.5.4</b> Fractal nature of spatial search algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="sim.html"><a href="sim.html#curse-of-dimensionality"><i class="fa fa-check"></i><b>6.6</b> Curse of Dimensionality</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="sim.html"><a href="sim.html#calculations-linear-in-number-of-individuals-ave.-number-of-life-events"><i class="fa fa-check"></i><b>6.6.1</b> Calculations linear in number of individuals * ave. number of life events</a></li>
+<li class="chapter" data-level="6.6.2" data-path="sim.html"><a href="sim.html#ramping-up-from-hundreds-to-millions"><i class="fa fa-check"></i><b>6.6.2</b> Ramping up from hundreds to millions</a></li>
+<li class="chapter" data-level="6.6.3" data-path="sim.html"><a href="sim.html#quasi-parallel-computation"><i class="fa fa-check"></i><b>6.6.3</b> Quasi-parallel computation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="sim.html"><a href="sim.html#efficient-use-of-supercomputer-clusters"><i class="fa fa-check"></i><b>6.6.4</b> Efficient use of supercomputer clusters</a></li>
+<li class="chapter" data-level="6.6.5" data-path="sim.html"><a href="sim.html#loosely-connected-communities"><i class="fa fa-check"></i><b>6.6.5</b> Loosely connected communities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="sim.html"><a href="sim.html#future-considerations"><i class="fa fa-check"></i><b>6.7</b> Future Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Data Integration</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#sample-splitter-to-count-insects"><i class="fa fa-check"></i><b>7.1</b> Sample splitter to count insects</a></li>
+<li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#organization-of-data-in-relational-database"><i class="fa fa-check"></i><b>7.2</b> Organization of data in relational database</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data.html"><a href="data.html#access-postgresql"><i class="fa fa-check"></i><b>7.2.1</b> Access, PostgresQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data.html"><a href="data.html#beyond-h5-used-for-satellite-images-microarray-data"><i class="fa fa-check"></i><b>7.2.2</b> Beyond: H5(?) used for satellite images, microarray data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#tying-data-to-events"><i class="fa fa-check"></i><b>7.3</b> Tying data to events</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html"><i class="fa fa-check"></i><b>8</b> Biology of Red Scale and its Parasitoids {# redscale}</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#detailed-life-histories"><i class="fa fa-check"></i><b>8.1</b> Detailed life histories</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#red-scale-life-history"><i class="fa fa-check"></i><b>8.1.1</b> Red Scale Life History</a></li>
+<li class="chapter" data-level="8.1.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#aphytis-life-history"><i class="fa fa-check"></i><b>8.1.2</b> Aphytis Life History</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#interaction-events-endo--ecto--hyper-parasitism"><i class="fa fa-check"></i><b>8.2</b> Interaction events: endo-, ecto-, hyper-parasitism</a></li>
+<li class="chapter" data-level="8.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#diurnal-and-degree-day-effects-seasonal-effects"><i class="fa fa-check"></i><b>8.3</b> Diurnal and degree-day effects; seasonal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#position-in-tree"><i class="fa fa-check"></i><b>8.4</b> Position in tree</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#orangebranchleaf"><i class="fa fa-check"></i><b>8.4.1</b> Orange/branch/leaf</a></li>
+<li class="chapter" data-level="8.4.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#exteriormain-trunk"><i class="fa fa-check"></i><b>8.4.2</b> Exterior/main trunk</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#search-algorithms"><i class="fa fa-check"></i><b>8.5</b> Search algorithms</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#parasite-for-host"><i class="fa fa-check"></i><b>8.5.1</b> Parasite for host</a></li>
+<li class="chapter" data-level="8.5.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#host-for-substrate"><i class="fa fa-check"></i><b>8.5.2</b> Host for substrate</a></li>
+<li class="chapter" data-level="8.5.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#local-vs.-long-distance-search"><i class="fa fa-check"></i><b>8.5.3</b> Local vs. long distance search</a></li>
+<li class="chapter" data-level="8.5.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations"><i class="fa fa-check"></i><b>8.5.4</b> Simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations-from-qpe-paper"><i class="fa fa-check"></i><b>8.6</b> Simulations from QPE Paper</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-span-and-resolution"><i class="fa fa-check"></i><b>8.6.1</b> Model Span and Resolution</a></li>
+<li class="chapter" data-level="8.6.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-results"><i class="fa fa-check"></i><b>8.6.2</b> Model Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="revisiting-wolffs-wading-birds-wolff.html"><a href="revisiting-wolffs-wading-birds-wolff.html"><i class="fa fa-check"></i><b>9</b> Revisiting Wolff’s Wading Birds {# wolff}</a></li>
+<li class="chapter" data-level="10" data-path="valid.html"><a href="valid.html"><i class="fa fa-check"></i><b>10</b> Validation and Sensitivity Testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="valid.html"><a href="valid.html#criteria-for-model-development"><i class="fa fa-check"></i><b>10.1</b> Criteria for Model Development</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="valid.html"><a href="valid.html#explained-variation-r2"><i class="fa fa-check"></i><b>10.1.1</b> Explained Variation <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="valid.html"><a href="valid.html#attribute-inclusionexclusion-significance-level"><i class="fa fa-check"></i><b>10.1.2</b> Attribute inclusion/exclusion significance level</a></li>
+<li class="chapter" data-level="10.1.3" data-path="valid.html"><a href="valid.html#linear-and-non-linear-equations"><i class="fa fa-check"></i><b>10.1.3</b> Linear and non-linear equations</a></li>
+<li class="chapter" data-level="10.1.4" data-path="valid.html"><a href="valid.html#parsimony"><i class="fa fa-check"></i><b>10.1.4</b> Parsimony</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="valid.html"><a href="valid.html#model-diagnostic-tests"><i class="fa fa-check"></i><b>10.2</b> Model diagnostic tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="code.html"><a href="code.html"><i class="fa fa-check"></i><b>11</b> Reusable, Extensible Simulation Code</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="code.html"><a href="code.html#tabular-data"><i class="fa fa-check"></i><b>11.1</b> Tabular data</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="code.html"><a href="code.html#organism-features"><i class="fa fa-check"></i><b>11.1.1</b> Organism Features</a></li>
+<li class="chapter" data-level="11.1.2" data-path="code.html"><a href="code.html#organism-future-events"><i class="fa fa-check"></i><b>11.1.2</b> Organism Future Events</a></li>
+<li class="chapter" data-level="11.1.3" data-path="code.html"><a href="code.html#interactions-among-organisms"><i class="fa fa-check"></i><b>11.1.3</b> Interactions among Organisms</a></li>
+<li class="chapter" data-level="11.1.4" data-path="code.html"><a href="code.html#organism-profiles"><i class="fa fa-check"></i><b>11.1.4</b> Organism profiles</a></li>
+<li class="chapter" data-level="11.1.5" data-path="code.html"><a href="code.html#species-life-histories"><i class="fa fa-check"></i><b>11.1.5</b> Species life histories</a></li>
+<li class="chapter" data-level="11.1.6" data-path="code.html"><a href="code.html#interaction-processes"><i class="fa fa-check"></i><b>11.1.6</b> Interaction processes</a></li>
+<li class="chapter" data-level="11.1.7" data-path="code.html"><a href="code.html#spatial-movement-on-icosohedron-large-substrate-structures"><i class="fa fa-check"></i><b>11.1.7</b> Spatial movement on icosohedron, large substrate structures</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="code.html"><a href="code.html#event-subroutines"><i class="fa fa-check"></i><b>11.2</b> Event subroutines</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="code.html"><a href="code.html#competing-risk-structure-1"><i class="fa fa-check"></i><b>11.2.1</b> Competing Risk Structure</a></li>
+<li class="chapter" data-level="11.2.2" data-path="code.html"><a href="code.html#birth-death"><i class="fa fa-check"></i><b>11.2.2</b> Birth, death</a></li>
+<li class="chapter" data-level="11.2.3" data-path="code.html"><a href="code.html#life-stages"><i class="fa fa-check"></i><b>11.2.3</b> Life stages</a></li>
+<li class="chapter" data-level="11.2.4" data-path="code.html"><a href="code.html#search-feed"><i class="fa fa-check"></i><b>11.2.4</b> Search, feed</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="code.html"><a href="code.html#bayesian-logic-programming"><i class="fa fa-check"></i><b>11.3</b> Bayesian logic programming</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="code.html"><a href="code.html#combining-bayesian-networks-and-prolog"><i class="fa fa-check"></i><b>11.3.1</b> Combining Bayesian networks and ProLog</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="fini.html"><a href="fini.html"><i class="fa fa-check"></i><b>12</b> Summary and Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Systems Ethology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Data Integration<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sample-splitter-to-count-insects" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Sample splitter to count insects<a href="data.html#sample-splitter-to-count-insects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sample Splitter</p>
+<p>Some of the designs that I first set up with some of the first things,
+but the Forest Service used — reverse sequential sampling to drop
+things out, but in a reverse — see the guy that was eventually, what
+was the guy, the other fellow that was the heavy hitter for the Forest
+Service? He eventually came on the department later on. I can’t
+think of his name.</p>
+<p>*Who was at the Forest Service?</p>
+<p>Yeah.</p>
+<p>*Bill Bedard, CJ?</p>
+<p>No.</p>
+<p>*Fields Cobb? Carl Huffaker?</p>
+<p>He ended up being the head of the department there for a while.</p>
+<p>*Bill Waters?</p>
+<p>Yeah, Bill Waters, yeah. So Bill Waters back in — was some of the
+first cuts out of putting a sequential sampling, see if you could
+reduce the amount of labor put into the sampling aspect actually,
+interestingly enough. So he was more than interested in reverse
+sequential sampling — at the time and then with the layout that was
+symmetric, that maybe analysis of the experiment ever so much easier.</p>
+<p>14.1</p>
+<p>I’m really curious about what you dug up in terms of bits and pieces
+of the work that was going on in the modeling effort, especially for
+Dave Wood and the group.</p>
+<p>*Well, I haven’t been able to get too much. What I got, I got the
+sample splitter stuff so I’ve got all the papers related to the sample
+splitter, including a copy of Ken Lindahl’s thesis.</p>
+<p>Let me ask a question at this point. Does the sample splitter include
+the stuff – statistics, and I also as I remember ran some tests on
+them to make sure that the sample splitter was working correctly, and
+even though the tests were not significant with the normal
+distribution test, they were with the – statistic. And this was
+something that happened a number of other times when we looked at
+fields called the data for a whole bunch of things, especially –. So
+is that data available, and is that what you found?</p>
+<p>*Yeah, I’ve got all that data. It’s all on sheets so it’s all on
+paper.</p>
+<p>Were the plots, did they still have the plots?</p>
+<p>*Yes.</p>
+<p>Wonderful.</p>
+<p>*Yeah, so I’ve got all the plots and I’ve got all of Paul Tilden’s
+stuff, Fields Cobb, whatever the data analysis. Now there’s a lot of
+it to sort through. There’s huge, you know, a big format blue binders
+with the 11 x 17 paper, computer paper. It’s all dusty but I’ve got
+it. So the data is there and then the work that Ken Lindahl did on
+the sample and the bias and the sample splitter is all there in his
+thesis. That’s the main stuff that I’ve been able to pull together.
+Don Dahlsten allegedly has some other material and Bob Luck is
+supposed to contact him but I haven’t heard anything directly on that
+yet. So that’s still in limbo, and that may be where the Bayesian
+stuff is, in Don Dahlsten’s office.</p>
+<p>Yeah, may very well be. Well that’s very encouraging.</p>
+<p>*Yeah, Dave Wood sent me about 75 pounds of stuff.</p>
+<p>Wonderful. So maybe his final statement at the end of that
+application and the data will be analyzed will finally come true.</p>
+<p>*And he would like that, he would like that. So I’ll probably look at
+the sample splitter stuff this summer. I’ve got it all in one place.</p>
+<p>Well then I really have to, two pieces of the, the sample splitter
+stuff, and part of that it seemed to me I was beginning to do the work
+that the first estimate said that the math likelihood estimator of the
+reverse sampling technique was just a simple ratio.</p>
+<p>*Right.</p>
+<p>But if you went to a traditional type of mean and variance type of
+estimator, the one – direct, it was a messy expression that I was in
+the first part of unraveling the plots on the APL work on the
+plotter. Did that ever show, did that stuff show up?</p>
+<p>*Yeah. The plots, well I think that’s there. There are certainly
+plots that I did that, they’re sort of wavy lines that show that the
+bias is largest right near to the end. I recognize some plots that I
+did over 20 years ago.</p>
+<p>Wonderful. Then my other question, it seemed that there were some
+pieces of Ken Lindall’s work that were used finishing up his
+dissertation. That work, Dave also sent me copies of that, but I had
+the impression that that piece had gone back to pure – theory with no
+number type of – relationship. Am I right on that?</p>
+<p>*I think you’re right on that. I started to look through Ken’s thesis
+but it’s real hard to go through it because he’s got titles like
+Introduction, Methods, Theory. I mean it’s hard to tell what section
+is what, so I just sort of flipped through it.</p>
+<p>As far as you could tell right off the top, it was – theory, –
+theory with no –. Even say a log normal which we were using –
+estimator. Now what am I trying to remember? The – and it’s a
+generalization that the — quotient is a multivariate. Is that
+right? Am I pulling that out of the – OK?</p>
+<p>*That sounds right.</p>
+<p>And with the multivariate, then it was basically sort of an exact
+counting function for numbers that would run between 0 and N, with N
+being a very finite number in mathematical things, and minus numbers
+being total garbage in terms of making sense in terms of that. So
+although the physical systems sometimes – make sense, in this
+particular case it made no sense at all, and also because of the
+number of pieces involved, they were being sampled by Don Dahlsten and
+you got some incredible number of zeroes. By far the most common
+value that you would get would be zero. Is that all – seem
+reasonable? – 20 years ago with the first –?</p>
+<p>*Yeah, I mean it’s, you know, talking about counting processes where
+you have lots of zeroes, I mean it’s familiar to me in a general way.
+I’m not familiar with the specifics because I wasn’t involved
+specifically with the counts and with Don Dahlsten. I was involved
+more with the.</p>
+<p>14.4</p>
+<p>My question was that it seems when we were trying to design ways of
+gathering data, counting data across many, many different species,
+with highly variable numbers, both off traps and off of other
+equipment, it seemed like no matter if the samples were bored out of
+trees and reared, it was all over the map. – also. So no matter
+where I looked, a number of species highly variable and in some cases
+like the counting stuff or the traps, the numbers could be gigantic
+sometimes. Huge numbers in the traps because of the size and
+effectiveness and at other times they caught very little and it could
+be all over the map, say – hosts of the tree or related insects say
+that Don Dahlsten was studying.</p>
+<p>At the time we looked at just some sort of – for sequential sampling
+technique to cut back on the work. It turned out it was far easier to
+subdivide things until everything had gone to zero or some arbitrary
+number of times. It was a higher power that would assure that the
+remaining – would be –. With the two underlying assumptions, and
+then it would –.</p>
+<p>At that time, I think I – one professor and a few of his students
+were doing reverse sequential sampling 20 years ago. That was what I
+was going to try to see if I could get any help from him to get things
+up and going but pretty much, and yet at that time who was the person
+that was, the name won’t pop into my head right now. He was the head
+of the whole program there at the Forest Service and then he moved
+over to the college of natural resources later as a department head,
+Waters.</p>
+<p>*Yeah, Bill Waters.</p>
+<p>Bill Waters, thank you, Bill Waters. Some days I have a very hard
+time pulling these back. As I remember Bill Waters, oddly enough his
+specialty was sequential sampling and its application to forest
+service problems. So here was this reverse sequential sampling
+technique, so my other question is where has that gone? Has anybody
+picked up on reverse sequential sampling? Is it a big deal, a huge
+deal, or what kind of thing?</p>
+<p>*I haven’t checked the literature. I know that.</p>
+<p>Or is that stuff that he did pretty much unique? And it still hasn’t
+followed up?</p>
+<p>*Yeah, the one thing that I can think that’s related that I know of is
+a dilution plating where people are looking for bacteria and they’ll
+take 10-fold dilutions and then draw up plates and they’ll have a
+series of different series on a 10-fold dilution. It’s related but
+it’s not the same thing.</p>
+<p>Yeah, and I could imagine that, looking under a stereo microscope or a
+– microscope, to estimate the area of growth of different things.
+The area estimation problem and mechanic problem underneath it. Thank
+you very much for picking that one up, but I’m quite curious.</p>
+<p>*Yeah, they now have Petri dishes that have covers which have etched
+into them grids and the grids have different scales. There will be a
+large grid and then a part of it will be made as a small grid so you
+can count depending on the kind of problem. So that’s used in certain
+fields. I haven’t actually looked at that literature yet but I know
+people who can help me find that out.</p>
+<p>OK, so that’s why I wanted to throw some things out that way because
+the follow-up on this is that the basically the thing for Dave’s stuff
+was all based on reverse sequential sampling techniques in terms of
+gathering the data and then setting up for data analysis. And we also
+read into some problems right at the first, with the sample not being
+ideally distributed and we were pretty fortunate that we ran a lot of
+test samples initially courtesy of, who’s the fellow there that did so
+much of the mechanical design? Can you think of his name?</p>
+<p>*At the forest service?</p>
+<p>No, he worked pretty much directly for Dave and Don Dahlsten designing
+equipment?</p>
+<p>*Not Paul Tilden?</p>
+<p>No, somebody else. He was not a help person, no he was a person
+involved in mechanical stuff. He was the one that did all the drawing
+of the decreasing stuff after my suggestion of using decreasing
+technique that was used industrial decreasing parts of stuff. It
+turned out that it did solve the problem and after that it didn’t tear
+things apart like blowing, high temperature, high pressure kerosene on
+the stuff to clean it which really shredded stuff. You came out the
+other side without being able to tell which piece was what.</p>
+<p>*Count the number of legs.</p>
+<p>Yeah. I can just see you trying to pair up the right head with the
+thorax with the right abdomen, huh? It was incredible. So there had
+to be some way of doing that that was a lot gentler and yet would get
+at the incredible design into stickiness and stick-to-it-tiveness of
+that, what do they call that – you did today? Making these trails of
+stuff that – because it was so sticky and so insoluble.</p>
+<p>*Stick-em? I don’t remember.</p>
+<p>Any way, at any rate, so we ended up with kind of a bear of a problem
+to solve there. It took a lot of testing. They had to go on also to
+resolve techniques that would really work correctly. There was a lot
+of other testing that was done on natural subsampling and other things
+by hand-picking area and then going back. Those were the ones that
+Don Dahlsten worked with because that area, he was interested in –
+species – samples that weren’t good enough. Actually put them into
+– collection of that stuff. So that was a little more tidbit of
+history. The math was interacting with experimental design. I guess
+that those are the big hanging ones that I was curious about. It also
+– 20 years ago.</p>
+<p>18.1</p>
+<p>It’s neat to see you and it’s neat to go on to this stuff again and am
+really intrigued about a number of things that I’ve been thinking
+about. First of all, did you ever – at Ken Lindahl’s work which I
+thought was just pure linear theory with no use of easier quad
+summation to – like the – normal or gamma function.</p>
+<p>*I have the material but I have not had a chance to look at it yet.</p>
+<p>But this is a really quick cursory glance, you didn’t, it looked like
+just classic normal.</p>
+<p>*Yeah.</p>
+<p>And no simplifying or computer simplifying assumptions that would make
+it easier to computer, a real life computer.</p>
+<p>*No.</p>
+<p>20.11</p>
+<p>Ok, another question. Did you ever go back in Ken Lindahl’s paper,
+and is it straight linear theory with no gamma function or – normal
+in it?</p>
+<p>*I haven’t gone back to that. I have it but I haven’t gone back to
+it.</p>
+<p>In the word process these days, couldn’t you just reverse it? Isn’t
+that in a hardware form? I mean word processing form you could get
+from Dave?</p>
+<p>*Oh, I have a copy of it.</p>
+<p>Yeah, but I mean as an electronic copy.</p>
+<p>*No, just paper.</p>
+<p>Whoa. Get an electronic copy. Do you realize how fast you could do
+the job with an electronic copy?</p>
+<p>*Yeah.</p>
+<p>And you’re still not sure? What you need is an electronic copy. It
+would just save you all kinds of time.</p>
+<p>*Well, I’ll see if I can get that.</p>
+<p>So why don’t you get an electronic copy of Ken Lindahl’s dissertation?
+It’s interesting I like to file things in the –. Use that as your
+basis to do all further work. And that way you can use a word
+processor the whole damn thing in a few moments –. How many hits do
+you get per normal distribution? How many hits do you get – and so
+on. And you get – at all for – normal, you’re going to have to
+allow for gamma functions. I’d be very curious.</p>
+<p>But don’t do a thing until you got an electronic copy. Also this
+would be another illustration of – chance to use it, society’s going
+to go to electronic eventually. So that’s another matter.</p>
+<p>– what he thought should be done and where he should go and I
+basically said that, I remembered this – what I just described to you
+and as a result also – the data and the data because the maximum in
+most of these levels were small, very small or zero. Lots of zero
+over all the – sample on the things, on the different traps and stuff
+– traps and all that junk. Lots of zeroes – small so the maximum –
+probably is the most reasonable estimator and that was just a part
+from the thing as I remember for the reverse sampling system that we
+were using.</p>
+<p>So as I remember, for that reverse sequential sampling system that
+oddly enough – always picked up on easier it looks like, weirdly
+enough. Not to any degree, because a certain –, whole lot easier
+than to just do, force the other direction. And the thing is that –
+as I remember, maximum likelihood estimator just dropped way off of
+the simple proportions. Is that right?</p>
+<p>*Yeah. But then it’s biased and then it’s a biased direction.</p>
+<p>If you want the first and second moment.</p>
+<p>*Yeah, then you could do some biased direction.</p>
+<p>And that’s what I was trying to calculate there with – with the
+biased – for that. That was the last program I was working on in APL
+too.</p>
+<p>*Yeah, the biased correction is in Ken’s thesis.</p>
+<p>Oh, good.</p>
+<p>*So he did that.</p>
+<p>*When we first started using that.</p>
+<p>20.13</p>
+<p>And the thing is that Dave should have scanned anyway. If it hasn’t
+been done, have him scan it. It’s become trivial now. Have him scan
+it. Also the whole statistic society is going to have to face a
+little bit of this too very soon. You – on the problem of this sort
+of thing on the internet –. But you might very well ask Dave to, if
+you don’t have an electronic one. Please ask him if he has an
+electronic form of Ken Lindahl’s thesis. And if he doesn’t, please to
+have it scanned because he always has the resources to do that because
+that thesis work was his own direction now. But it should be
+electronically scanned and that costs zip money these days. The only
+one niche, it will cost you about $50 for any – version of things to
+make your computer to be able to listen to you and transcribe stuff by
+just having you talk. So it’s only – for not having – in the other
+direction –. But again, please contact Dave.</p>
+<p>*I’ll do that.</p>
+<p>About that Ken Lindahl thesis. Have him send you the electronic copy
+of it before you do anything.</p>
+<p>*Yeah.</p>
+<p>And if he doesn’t have one available – you need to be in that form
+anyway. How’s he going to manipulate it – publish – paper, there’s
+no way that he can’t have an electronic form. You don’t type things
+from scratch.</p>
+<p>*I’m sure Ken has an electronic copy somewhere so I can go back to Ken
+on that.</p>
+<p>So that’s what I would. So find an electronic copy from Ken or Dave
+Wood.</p>
+<p>*So other stuff bubbling up here on that modeling.</p>
+<p>Well, it really struck me that – the other core pieces of this thing
+– method that we were going to use was unbiased and wouldn’t skew
+results in way or another, and to the – I dug into, it seemed – is
+we had valid number generators and everything like that that would
+–. The transformations that were bearing on the mathematics weren’t
+screwed up because we did find some bug in the thing. Then we had to
+go back and refix only to find that Los – has a serious bug in their
+random number generators they have never fixed to this day. –
+remember that graphic program?</p>
+<p>*Yeah.</p>
+<p>So that’s the impression of the, that’s the amount of politicking you
+need to – idea because the whole system, you don’t need much – and
+the Monte Carlo converts it incredibly fast initially – doesn’t
+diverge for shit, if you want 5 positions, ok? But boy, does it
+convert fast at first, so the very kind of place that we need fast
+convergence, it’s ideal for imprecise systems. So it seemed to me
+that that turned out to also be on bias – which he hadn’t – and all
+this type of – describing like – random number generated out for
+underpinning it and that was how you’d biased it.</p>
+<p>You’re going to assume that certain mathematics –, mathematics is
+indeed –, you can’t put in bad – and somehow have it –. And so of
+course that’s the one we kept having to go back and look –. Gee,
+will this work, will that work? I’d – because it’s, but on the other
+hand it seems that it’s a rapidly conversion, estimator, but boy if
+you – two decimals, but if you need three positions, position, third
+place for your –, you’re also doing heavy duty computation. And if
+you need 6 or 7 places, whoa. You’re going to have a super computer
+going all through the –. So it seems to me also that – was
+absolutely ideally suited for our purpose, our system was inherently
+imprecise. Ok, that was another thing I wanted to throw out.</p>
+<p>*Yeah, I don’t think we had talked about that before.</p>
+<p>But also, I also want to throw out some examples of places that we had
+looked a long time ago and in turn there were some real problems and
+they had never corrected them. – that problem still is on the random
+number generator, what 25 years later?</p>
+<p>*At least. Yeah, it was almost exactly 25 years ago.</p>
+<p>Quarter of a century ago.</p>
+<p>*Yeah, right.</p>
+<p>Quarter of a century – point it out to them? Nope. It’s still on
+after a quarter of a century. So that is another issue –.</p>
+<p>21.2</p>
+<p>Again, please – for electronic version on Ken Lindahl’s thesis. It
+doesn’t exactly – today.</p>
+<p>*Well, that can be arranged. That can be arranged.</p>
+<p>But at any rate, please, please, please do that first before you even
+think of – out. Otherwise it’s a waste of your time.</p>
+<p>*Oh yeah, I’m not going to just type it in.</p>
+<p>You’ve already taken the first couple of –.</p>
+</div>
+<div id="organization-of-data-in-relational-database" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Organization of data in relational database<a href="data.html#organization-of-data-in-relational-database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="access-postgresql" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Access, PostgresQL<a href="data.html#access-postgresql" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="beyond-h5-used-for-satellite-images-microarray-data" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Beyond: H5(?) used for satellite images, microarray data<a href="data.html#beyond-h5-used-for-satellite-images-microarray-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="tying-data-to-events" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Tying data to events<a href="data.html#tying-data-to-events" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sim.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="biology-of-red-scale-and-its-parasitoids-redscale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/07-data.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["ewing_book.pdf", "ewing_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

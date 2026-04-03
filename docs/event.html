@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Event-Driven Competing Risks Structure | Systems Ethology</title>
+  <meta name="description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Event-Driven Competing Risks Structure | Systems Ethology" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="github-repo" content="byandell/ewing_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Event-Driven Competing Risks Structure | Systems Ethology" />
+  
+  <meta name="twitter:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  
+
+<meta name="author" content="Bland Ewing, Brian S Yandell, James F Barbieri, Robert F Luck, Lisa D Forster" />
+
+
+<meta name="date" content="2026-04-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="prob.html"/>
+<link rel="next" href="sim.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative Population Ethology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="qpe.html"><a href="qpe.html"><i class="fa fa-check"></i><b>1</b> Why Quantitative Population Ethology?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="qpe.html"><a href="qpe.html#maleable-tools-for-the-field-biologists"><i class="fa fa-check"></i><b>1.1</b> Maleable Tools for the Field Biologists</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="qpe.html"><a href="qpe.html#tying-simulations-to-field-data"><i class="fa fa-check"></i><b>1.1.1</b> Tying simulations to field data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="qpe.html"><a href="qpe.html#simulating-millions-of-organisms"><i class="fa fa-check"></i><b>1.2</b> Simulating Millions of Organisms</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="qpe.html"><a href="qpe.html#limitations-of-brute-force-computing"><i class="fa fa-check"></i><b>1.2.1</b> Limitations of brute force computing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="qpe.html"><a href="qpe.html#loose-coupling-of-model-cascades"><i class="fa fa-check"></i><b>1.2.2</b> Loose coupling of model cascades</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="qpe.html"><a href="qpe.html#from-individual-behavior-to-evolution"><i class="fa fa-check"></i><b>1.3</b> From Individual Behavior to Evolution</a></li>
+<li class="chapter" data-level="1.4" data-path="qpe.html"><a href="qpe.html#discussion-from-qpe"><i class="fa fa-check"></i><b>1.4</b> Discussion from QPE</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="classical.html"><a href="classical.html"><i class="fa fa-check"></i><b>2</b> Limitations of Classical Models</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="classical.html"><a href="classical.html#mathematical-biology"><i class="fa fa-check"></i><b>2.1</b> Mathematical Biology</a></li>
+<li class="chapter" data-level="2.2" data-path="classical.html"><a href="classical.html#biology-vs.-physics"><i class="fa fa-check"></i><b>2.2</b> Biology vs. Physics</a></li>
+<li class="chapter" data-level="2.3" data-path="classical.html"><a href="classical.html#predator-prey-models"><i class="fa fa-check"></i><b>2.3</b> Predator-Prey Models</a></li>
+<li class="chapter" data-level="2.4" data-path="classical.html"><a href="classical.html#classical-differential-equation-models"><i class="fa fa-check"></i><b>2.4</b> Classical Differential Equation Models</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="classical.html"><a href="classical.html#early-work-the-holling-predation-studies"><i class="fa fa-check"></i><b>2.4.1</b> Early Work: The Holling Predation Studies</a></li>
+<li class="chapter" data-level="2.4.2" data-path="classical.html"><a href="classical.html#lotka-volterra-leslie-matrices"><i class="fa fa-check"></i><b>2.4.2</b> Lotka-Volterra, Leslie matrices</a></li>
+<li class="chapter" data-level="2.4.3" data-path="classical.html"><a href="classical.html#time-and-phase-space"><i class="fa fa-check"></i><b>2.4.3</b> Time and phase space</a></li>
+<li class="chapter" data-level="2.4.4" data-path="classical.html"><a href="classical.html#stable-cycles-and-chaos"><i class="fa fa-check"></i><b>2.4.4</b> Stable cycles and chaos</a></li>
+<li class="chapter" data-level="2.4.5" data-path="classical.html"><a href="classical.html#quadratic-and-linear-equations-in-optimization-research"><i class="fa fa-check"></i><b>2.4.5</b> Quadratic and Linear Equations in Optimization Research</a></li>
+<li class="chapter" data-level="2.4.6" data-path="classical.html"><a href="classical.html#limitations"><i class="fa fa-check"></i><b>2.4.6</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="classical.html"><a href="classical.html#life-tables-and-competing-risks"><i class="fa fa-check"></i><b>2.5</b> Life tables and competing risks</a></li>
+<li class="chapter" data-level="2.6" data-path="classical.html"><a href="classical.html#synchronized-generations"><i class="fa fa-check"></i><b>2.6</b> Synchronized generations</a></li>
+<li class="chapter" data-level="2.7" data-path="classical.html"><a href="classical.html#time-driven-simulation-models"><i class="fa fa-check"></i><b>2.7</b> Time Driven Simulation Models</a></li>
+<li class="chapter" data-level="2.8" data-path="classical.html"><a href="classical.html#population-size-continuous-or-discrete"><i class="fa fa-check"></i><b>2.8</b> Population size: continuous or discrete</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="classical.html"><a href="classical.html#time-almost-always-one-unit"><i class="fa fa-check"></i><b>2.8.1</b> Time almost always one unit</a></li>
+<li class="chapter" data-level="2.8.2" data-path="classical.html"><a href="classical.html#stochastic-dynamic-systems"><i class="fa fa-check"></i><b>2.8.2</b> Stochastic dynamic systems</a></li>
+<li class="chapter" data-level="2.8.3" data-path="classical.html"><a href="classical.html#discrete-time-stochastic-petri-nets"><i class="fa fa-check"></i><b>2.8.3</b> Discrete time stochastic Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="classical.html"><a href="classical.html#event-driven-petri-nets"><i class="fa fa-check"></i><b>2.9</b> Event-driven Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="field-biologists-and-the-collection-of-data-field.html"><a href="field-biologists-and-the-collection-of-data-field.html"><i class="fa fa-check"></i><b>3</b> Field Biologists and the Collection of Data {#field}}</a></li>
+<li class="chapter" data-level="4" data-path="prob.html"><a href="prob.html"><i class="fa fa-check"></i><b>4</b> Probabilistic Nature of Individual Behavior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prob.html"><a href="prob.html#properties-of-an-individual"><i class="fa fa-check"></i><b>4.1</b> Properties of an individual</a></li>
+<li class="chapter" data-level="4.2" data-path="prob.html"><a href="prob.html#interactions-among-individuals-in-community"><i class="fa fa-check"></i><b>4.2</b> Interactions among individuals in community</a></li>
+<li class="chapter" data-level="4.3" data-path="prob.html"><a href="prob.html#field-sampling-process"><i class="fa fa-check"></i><b>4.3</b> Field sampling process</a></li>
+<li class="chapter" data-level="4.4" data-path="prob.html"><a href="prob.html#quantization-of-eventsstates"><i class="fa fa-check"></i><b>4.4</b> Quantization of events/states</a></li>
+<li class="chapter" data-level="4.5" data-path="prob.html"><a href="prob.html#quantization-of-timespace"><i class="fa fa-check"></i><b>4.5</b> Quantization of time/space</a></li>
+<li class="chapter" data-level="4.6" data-path="prob.html"><a href="prob.html#heisenberg-uncertainty-principle"><i class="fa fa-check"></i><b>4.6</b> Heisenberg uncertainty principle</a></li>
+<li class="chapter" data-level="4.7" data-path="prob.html"><a href="prob.html#games-of-skill-and-chance"><i class="fa fa-check"></i><b>4.7</b> Games of Skill and Chance</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="prob.html"><a href="prob.html#backgammon"><i class="fa fa-check"></i><b>4.7.1</b> Backgammon</a></li>
+<li class="chapter" data-level="4.7.2" data-path="prob.html"><a href="prob.html#bridge"><i class="fa fa-check"></i><b>4.7.2</b> Bridge</a></li>
+<li class="chapter" data-level="4.7.3" data-path="prob.html"><a href="prob.html#chess"><i class="fa fa-check"></i><b>4.7.3</b> Chess</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="event.html"><a href="event.html"><i class="fa fa-check"></i><b>5</b> Event-Driven Competing Risks Structure</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="event.html"><a href="event.html#event-driven-considerations-for-living-systems"><i class="fa fa-check"></i><b>5.1</b> Event-Driven Considerations for Living Systems</a></li>
+<li class="chapter" data-level="5.2" data-path="event.html"><a href="event.html#minimization-structure-within-across-individuals"><i class="fa fa-check"></i><b>5.2</b> Minimization structure within, across individuals</a></li>
+<li class="chapter" data-level="5.3" data-path="event.html"><a href="event.html#modelling-event-to-event"><i class="fa fa-check"></i><b>5.3</b> Modelling event to event</a></li>
+<li class="chapter" data-level="5.4" data-path="event.html"><a href="event.html#non-homogeneous-poisson-process-rebuilt-at-every-event"><i class="fa fa-check"></i><b>5.4</b> Non-homogeneous Poisson process rebuilt at every event</a></li>
+<li class="chapter" data-level="5.5" data-path="event.html"><a href="event.html#event-span-resolution"><i class="fa fa-check"></i><b>5.5</b> Event, span, resolution</a></li>
+<li class="chapter" data-level="5.6" data-path="event.html"><a href="event.html#futureimmediatepending-events"><i class="fa fa-check"></i><b>5.6</b> Future/immediate/pending events</a></li>
+<li class="chapter" data-level="5.7" data-path="event.html"><a href="event.html#competing-risks-for-life-events"><i class="fa fa-check"></i><b>5.7</b> Competing Risks for Life Events</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="event.html"><a href="event.html#competing-risk-structure"><i class="fa fa-check"></i><b>5.7.1</b> Competing risk structure</a></li>
+<li class="chapter" data-level="5.7.2" data-path="event.html"><a href="event.html#time-depends-on-events"><i class="fa fa-check"></i><b>5.7.2</b> Time depends on events</a></li>
+<li class="chapter" data-level="5.7.3" data-path="event.html"><a href="event.html#event-structure-for-individual"><i class="fa fa-check"></i><b>5.7.3</b> Event structure for individual</a></li>
+<li class="chapter" data-level="5.7.4" data-path="event.html"><a href="event.html#five-dimensional-parameterization"><i class="fa fa-check"></i><b>5.7.4</b> Five-dimensional parameterization</a></li>
+<li class="chapter" data-level="5.7.5" data-path="event.html"><a href="event.html#handling-immediate-events"><i class="fa fa-check"></i><b>5.7.5</b> Handling immediate events</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sim.html"><a href="sim.html"><i class="fa fa-check"></i><b>6</b> Simulation Mechanics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sim.html"><a href="sim.html#choice-of-modeling-system"><i class="fa fa-check"></i><b>6.1</b> Choice of Modeling System</a></li>
+<li class="chapter" data-level="6.2" data-path="sim.html"><a href="sim.html#cubic-splines"><i class="fa fa-check"></i><b>6.2</b> Cubic splines</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="sim.html"><a href="sim.html#time-to-event-based-on-data-or-intuition"><i class="fa fa-check"></i><b>6.2.1</b> Time to event based on data or intuition</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sim.html"><a href="sim.html#translating-time-to-degree-days-and-back"><i class="fa fa-check"></i><b>6.2.2</b> Translating time to degree-days and back</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sim.html"><a href="sim.html#spatial-components"><i class="fa fa-check"></i><b>6.3</b> Spatial components</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="sim.html"><a href="sim.html#tridiagonal-coordinate-system"><i class="fa fa-check"></i><b>6.3.1</b> Tridiagonal coordinate system</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sim.html"><a href="sim.html#sierpinski-gasket"><i class="fa fa-check"></i><b>6.3.2</b> Sierpinski gasket</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sim.html"><a href="sim.html#icosohedrontriangular-cylinder-for-objects"><i class="fa fa-check"></i><b>6.3.3</b> Icosohedron/triangular cylinder for objects</a></li>
+<li class="chapter" data-level="6.3.4" data-path="sim.html"><a href="sim.html#smooth-integration-between-triangles"><i class="fa fa-check"></i><b>6.3.4</b> Smooth integration between triangles</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="sim.html"><a href="sim.html#priority-queues"><i class="fa fa-check"></i><b>6.4</b> Priority queues</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="sim.html"><a href="sim.html#partial-ordering-of-individuals-based-on-next-future-event"><i class="fa fa-check"></i><b>6.4.1</b> Partial ordering of individuals based on next future event</a></li>
+<li class="chapter" data-level="6.4.2" data-path="sim.html"><a href="sim.html#dynamic-storage-allocation"><i class="fa fa-check"></i><b>6.4.2</b> Dynamic storage allocation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sim.html"><a href="sim.html#pseudo-randomization"><i class="fa fa-check"></i><b>6.5</b> Pseudo-Randomization</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="sim.html"><a href="sim.html#generalized-feedback-shift-registers"><i class="fa fa-check"></i><b>6.5.1</b> Generalized feedback shift registers</a></li>
+<li class="chapter" data-level="6.5.2" data-path="sim.html"><a href="sim.html#exponential-random-values"><i class="fa fa-check"></i><b>6.5.2</b> Exponential random values</a></li>
+<li class="chapter" data-level="6.5.3" data-path="sim.html"><a href="sim.html#sierpinski-gasket-order-direction"><i class="fa fa-check"></i><b>6.5.3</b> Sierpinski gasket: order, direction</a></li>
+<li class="chapter" data-level="6.5.4" data-path="sim.html"><a href="sim.html#fractal-nature-of-spatial-search-algorithms"><i class="fa fa-check"></i><b>6.5.4</b> Fractal nature of spatial search algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="sim.html"><a href="sim.html#curse-of-dimensionality"><i class="fa fa-check"></i><b>6.6</b> Curse of Dimensionality</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="sim.html"><a href="sim.html#calculations-linear-in-number-of-individuals-ave.-number-of-life-events"><i class="fa fa-check"></i><b>6.6.1</b> Calculations linear in number of individuals * ave. number of life events</a></li>
+<li class="chapter" data-level="6.6.2" data-path="sim.html"><a href="sim.html#ramping-up-from-hundreds-to-millions"><i class="fa fa-check"></i><b>6.6.2</b> Ramping up from hundreds to millions</a></li>
+<li class="chapter" data-level="6.6.3" data-path="sim.html"><a href="sim.html#quasi-parallel-computation"><i class="fa fa-check"></i><b>6.6.3</b> Quasi-parallel computation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="sim.html"><a href="sim.html#efficient-use-of-supercomputer-clusters"><i class="fa fa-check"></i><b>6.6.4</b> Efficient use of supercomputer clusters</a></li>
+<li class="chapter" data-level="6.6.5" data-path="sim.html"><a href="sim.html#loosely-connected-communities"><i class="fa fa-check"></i><b>6.6.5</b> Loosely connected communities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="sim.html"><a href="sim.html#future-considerations"><i class="fa fa-check"></i><b>6.7</b> Future Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Data Integration</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#sample-splitter-to-count-insects"><i class="fa fa-check"></i><b>7.1</b> Sample splitter to count insects</a></li>
+<li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#organization-of-data-in-relational-database"><i class="fa fa-check"></i><b>7.2</b> Organization of data in relational database</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data.html"><a href="data.html#access-postgresql"><i class="fa fa-check"></i><b>7.2.1</b> Access, PostgresQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data.html"><a href="data.html#beyond-h5-used-for-satellite-images-microarray-data"><i class="fa fa-check"></i><b>7.2.2</b> Beyond: H5(?) used for satellite images, microarray data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#tying-data-to-events"><i class="fa fa-check"></i><b>7.3</b> Tying data to events</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html"><i class="fa fa-check"></i><b>8</b> Biology of Red Scale and its Parasitoids {# redscale}</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#detailed-life-histories"><i class="fa fa-check"></i><b>8.1</b> Detailed life histories</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#red-scale-life-history"><i class="fa fa-check"></i><b>8.1.1</b> Red Scale Life History</a></li>
+<li class="chapter" data-level="8.1.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#aphytis-life-history"><i class="fa fa-check"></i><b>8.1.2</b> Aphytis Life History</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#interaction-events-endo--ecto--hyper-parasitism"><i class="fa fa-check"></i><b>8.2</b> Interaction events: endo-, ecto-, hyper-parasitism</a></li>
+<li class="chapter" data-level="8.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#diurnal-and-degree-day-effects-seasonal-effects"><i class="fa fa-check"></i><b>8.3</b> Diurnal and degree-day effects; seasonal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#position-in-tree"><i class="fa fa-check"></i><b>8.4</b> Position in tree</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#orangebranchleaf"><i class="fa fa-check"></i><b>8.4.1</b> Orange/branch/leaf</a></li>
+<li class="chapter" data-level="8.4.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#exteriormain-trunk"><i class="fa fa-check"></i><b>8.4.2</b> Exterior/main trunk</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#search-algorithms"><i class="fa fa-check"></i><b>8.5</b> Search algorithms</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#parasite-for-host"><i class="fa fa-check"></i><b>8.5.1</b> Parasite for host</a></li>
+<li class="chapter" data-level="8.5.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#host-for-substrate"><i class="fa fa-check"></i><b>8.5.2</b> Host for substrate</a></li>
+<li class="chapter" data-level="8.5.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#local-vs.-long-distance-search"><i class="fa fa-check"></i><b>8.5.3</b> Local vs. long distance search</a></li>
+<li class="chapter" data-level="8.5.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations"><i class="fa fa-check"></i><b>8.5.4</b> Simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations-from-qpe-paper"><i class="fa fa-check"></i><b>8.6</b> Simulations from QPE Paper</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-span-and-resolution"><i class="fa fa-check"></i><b>8.6.1</b> Model Span and Resolution</a></li>
+<li class="chapter" data-level="8.6.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-results"><i class="fa fa-check"></i><b>8.6.2</b> Model Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="revisiting-wolffs-wading-birds-wolff.html"><a href="revisiting-wolffs-wading-birds-wolff.html"><i class="fa fa-check"></i><b>9</b> Revisiting Wolff’s Wading Birds {# wolff}</a></li>
+<li class="chapter" data-level="10" data-path="valid.html"><a href="valid.html"><i class="fa fa-check"></i><b>10</b> Validation and Sensitivity Testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="valid.html"><a href="valid.html#criteria-for-model-development"><i class="fa fa-check"></i><b>10.1</b> Criteria for Model Development</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="valid.html"><a href="valid.html#explained-variation-r2"><i class="fa fa-check"></i><b>10.1.1</b> Explained Variation <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="valid.html"><a href="valid.html#attribute-inclusionexclusion-significance-level"><i class="fa fa-check"></i><b>10.1.2</b> Attribute inclusion/exclusion significance level</a></li>
+<li class="chapter" data-level="10.1.3" data-path="valid.html"><a href="valid.html#linear-and-non-linear-equations"><i class="fa fa-check"></i><b>10.1.3</b> Linear and non-linear equations</a></li>
+<li class="chapter" data-level="10.1.4" data-path="valid.html"><a href="valid.html#parsimony"><i class="fa fa-check"></i><b>10.1.4</b> Parsimony</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="valid.html"><a href="valid.html#model-diagnostic-tests"><i class="fa fa-check"></i><b>10.2</b> Model diagnostic tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="code.html"><a href="code.html"><i class="fa fa-check"></i><b>11</b> Reusable, Extensible Simulation Code</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="code.html"><a href="code.html#tabular-data"><i class="fa fa-check"></i><b>11.1</b> Tabular data</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="code.html"><a href="code.html#organism-features"><i class="fa fa-check"></i><b>11.1.1</b> Organism Features</a></li>
+<li class="chapter" data-level="11.1.2" data-path="code.html"><a href="code.html#organism-future-events"><i class="fa fa-check"></i><b>11.1.2</b> Organism Future Events</a></li>
+<li class="chapter" data-level="11.1.3" data-path="code.html"><a href="code.html#interactions-among-organisms"><i class="fa fa-check"></i><b>11.1.3</b> Interactions among Organisms</a></li>
+<li class="chapter" data-level="11.1.4" data-path="code.html"><a href="code.html#organism-profiles"><i class="fa fa-check"></i><b>11.1.4</b> Organism profiles</a></li>
+<li class="chapter" data-level="11.1.5" data-path="code.html"><a href="code.html#species-life-histories"><i class="fa fa-check"></i><b>11.1.5</b> Species life histories</a></li>
+<li class="chapter" data-level="11.1.6" data-path="code.html"><a href="code.html#interaction-processes"><i class="fa fa-check"></i><b>11.1.6</b> Interaction processes</a></li>
+<li class="chapter" data-level="11.1.7" data-path="code.html"><a href="code.html#spatial-movement-on-icosohedron-large-substrate-structures"><i class="fa fa-check"></i><b>11.1.7</b> Spatial movement on icosohedron, large substrate structures</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="code.html"><a href="code.html#event-subroutines"><i class="fa fa-check"></i><b>11.2</b> Event subroutines</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="code.html"><a href="code.html#competing-risk-structure-1"><i class="fa fa-check"></i><b>11.2.1</b> Competing Risk Structure</a></li>
+<li class="chapter" data-level="11.2.2" data-path="code.html"><a href="code.html#birth-death"><i class="fa fa-check"></i><b>11.2.2</b> Birth, death</a></li>
+<li class="chapter" data-level="11.2.3" data-path="code.html"><a href="code.html#life-stages"><i class="fa fa-check"></i><b>11.2.3</b> Life stages</a></li>
+<li class="chapter" data-level="11.2.4" data-path="code.html"><a href="code.html#search-feed"><i class="fa fa-check"></i><b>11.2.4</b> Search, feed</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="code.html"><a href="code.html#bayesian-logic-programming"><i class="fa fa-check"></i><b>11.3</b> Bayesian logic programming</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="code.html"><a href="code.html#combining-bayesian-networks-and-prolog"><i class="fa fa-check"></i><b>11.3.1</b> Combining Bayesian networks and ProLog</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="fini.html"><a href="fini.html"><i class="fa fa-check"></i><b>12</b> Summary and Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Systems Ethology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="event" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Event-Driven Competing Risks Structure<a href="event.html#event" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The California red scale {} (Maskell)
+(Homoptera: Diaspididae), is a major pest of California citrus, with
+infestations causing growers significant financial losses. It has
+recently developed resistance to traditional insecticide sprays. An
+alternative suppression tactic is the release of a biological control
+agent, {} DeBach (Aphelinidae: Hymenoptera) that
+feeds on red scale. Although many aspects of the red scale-{} interaction are now understood, it is difficult to
+differentiate the effects of temperature and population fluctuations
+in the field. To investigate such complex interactions, we propose a
+new stochastic modelling technique, based on event-driven competing
+risks, that incorporates details of life histories as well as the
+host-parasitoid interaction. Our continuous-time, individual-oriented
+modelling approach quantifies relationships among individuals and
+describes the resulting coupling between the interacting
+populations. The event-structured simulation drives time in contrast
+to the usual time-driven stochastic dynamic programming. Our system,
+developed in the public domain using the R statistical package, allows
+for different biological clocks, since both red scale and {} development respond to temperature (degree-days) while
+searching female {} follow a diurnal time schedule,
+contingent upon temperature-dependent egg maturation.</p>
+<p>We build a mathematical structure for a biological community based on
+probabilistic choices for events that affect individuals, singly or
+through interaction with other individuals (Ewing et al. 1974,
+2001). Events drive the simulation, and hence time is a function of
+those events. An event is defined as a significant biological change
+that can be marked and counted, resulting in an instantaneous state
+change, such as birth, death, or finding food. Thus our simulation has
+discrete events that imply a time ordering of future events. This
+ordering may be rearranged depending on the outcome of any current
+event. Each individual has its own state description and scheduled
+next future event, which may involve other individuals. There is no
+need to write down all possible events and interactions. Instead we
+keep track of the current state and let the biological system
+simulation evolve its own structure.</p>
+<p>We reduce model dimensionality in three ways. First, simulation runs
+are event driven, with action only at future events times. Second,
+simplify the state space by focusing on events of consequence within
+the span and resolution dictated by the scientific questions asked of
+the biological system. Events at finer resolution are instantaneous,
+while events that stretch beyond the span of study are constant or
+slowly varying. Third, schedule spatio-temporal interactions of
+individuals using distance-based probabilities rather than by stepping
+across a spatial grid. For a more detailed presentation of these
+concepts, see Ewing et al. (2001) and simulation tools at
+<a href="http://www.stat.wisc.edu/~yandell/ewing" class="uri">http://www.stat.wisc.edu/~yandell/ewing</a>.</p>
+<p>In our view, a biological system consists of a collection of
+individuals subject to stimuli over time based on life histories and
+interactions with other individuals and the environment. Each
+individual’s life is a sequence of events. After each event, an
+individual may schedule one of several possible future events,
+implicitly setting a future event time, and possibly disrupting other
+individuals if the current event involves some type of interaction. A
+clear example of interaction is predation, in which a predator finds
+and kills a prey, canceling future events for that unfortunate
+individual. The simulation proceeds from event to event, processing
+future events in time order across all individuals in the biological
+system.</p>
+<p>Since we only follow a few events per individual, depending on their
+memory capabilities, calculations are reduced dramatically from
+time-driven models. Identifying the individual with the next future
+event is a log(r) calculation using priority queues (Knuth 19xx). That
+individual has an n-dimensional state description with up to mn-1
+possible future events, although typically only a few are relevant
+given the current state. Thus the number of calculations need for k
+events per individual in a memoryless system is kmn(mn-1)rlog(r). Note
+in particular that our computational complexity is almost linear in
+the numbers of individuals and events. Partial memory can be added
+selectively to individuals or to types of events without dramatically
+increasing this number.</p>
+<p>As a modest example of the high dimensionality, consider a simulation
+in which <span class="math inline">\(r=1,000\)</span> individuals are followed, say 200 per
+generation over 5 generations. Suppose each individual has an average
+of <span class="math inline">\(n=10\)</span> attributes. The dimensionality of the system is
+<span class="math inline">\(N=n\times r=10\times(5\times200)=10,000\)</span>. If on average
+each variable has <span class="math inline">\(m=10\)</span> states, then a time-driven simulation
+must handle a state space of <span class="math inline">\(M=mN=10^{10,000}\)</span>,. If
+the model is run over <span class="math inline">\(k=1,000\)</span> time steps, the number of
+computations is <span class="math inline">\(kM^2=10^{20,003}\)</span>,. Taking advantage of
+sparse possible trajectories, <span class="math inline">\(m^{n}=10^{10}\)</span> might be reduced
+to <span class="math inline">\(m=10\)</span>, yielding <span class="math inline">\(10^{2,003}\)</span>,. For time-driven models,
+which is obviously far beyond the capacity of any computer system, now
+or in the foreseeable future. For event-driven models, the number of
+computations <span class="math inline">\(10^{26}\log(10)\)</span>, or <span class="math inline">\(10^8\log(10)\)</span> taking advantage of
+sparse trajectories, which is computationally feasible. Even so, this
+is unfairly weighted toward time-step models, since not every time
+step is likely to yield an event for any individual. Time-driven
+computations can be simplified further, of course, by clever updating
+schemes. However, time-driven computations are still exponential in
+the number of individuals.</p>
+<p>Stochastic models in ecology attempt to incorporate key underlying
+processes of an ecological system, allowing the study of multiple
+realizations through simulation. We focus here on models of life
+history events for interacting populations. The life table
+approximation of dividing time into discrete “quanta” migrated early
+into stochastic models in ecology. Modern ecological simulation
+studies consider ever smaller time increments using this same fixed
+time step framework (Mangel and Clark 1988; Wolff 1994; Hutchinson and
+McNamara 2000). While finer scale increments can capture more
+intricate events, they require more time simulating null
+activity. Further, their discrete nature can introduce unintended
+artifacts that are difficult to unravel.</p>
+<p>Work in complexity (Langton 1986) suggests that higher level structure
+can emerge from self-organizing processes occurring at lower
+levels. However, such models to date suffer from the same quantization
+problem found with life-table derived methods. Recently Gronewold and
+Sonnenschein (1998) used cellular automata based on Petri nets to
+model a host-parasite interaction. Unfortunately, efforts to globally
+synchronize their model to reflect annual cycles introduced
+unacceptable network complexity. Such synchronized models cannot
+detect emergent patterns.</p>
+<p>Alternatively, we propose to base models on the actual time of
+events. The difficulty with this shift in perspective is that events
+for individuals are no longer synchronized, making life table and
+generation summaries problematic. The development below of a
+simulation structure for competing risks in a biological system is
+built upon the concept of potential lifetimes using the cumulative
+risks as a basic building block. This approach uses detailed knowledge
+of the biological system under study, providing a framework to
+incorporate known and suspected aspects of that system. Our approach
+has close connections to continuous time stochastic Petri nets (Ajmone
+Marsan et al. 1995; Lindemann 1998) that are event driven. However, we
+believe our perspective offers a much simpler way to develop
+ecological models, focusing on the next scheduled event and the local
+structure of competing risks for event transitions.</p>
+<p>The study of any biological system is intrinsically dependent
+on the choice of measurements and the manner of sampling. Typically, a
+sample of members of a population is observed with each individual
+viewed as an integral organism functioning as a single unit, albeit
+interconnected to others. Activities of these individuals are recorded
+in terms of life history events described at some resolution of time,
+space and detail depending on the purpose of the study. Observations
+measured over some span of time and space form the basis for
+understanding the biological system. We can develop a model framework
+directly driven by these measurements.</p>
+<p>We first consider a living system as a stochastic process, recasting
+concepts of events for an individual and a population of individuals
+in an biological system. We then detail the biology of the red
+scale/{} host-parasitoid system to identify features of life
+histories and inter-species interactions important in simulation. We
+develop a competing risks framework with attention to modelling an
+individual’s biological clock in a simple but effective
+manner. Finally, we show initial results of our red scale/{}
+ecosystem simulation.</p>
+<div id="event-driven-considerations-for-living-systems" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Event-Driven Considerations for Living Systems<a href="event.html#event-driven-considerations-for-living-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider a living system as a complicated stochastic process <span class="math inline">\(X\)</span>
+that progresses through time from one event to the next. An {} is defined as a significant biological
+change that can be marked and counted, resulting in an instantaneous
+state change. That is, at time <span class="math inline">\(t\)</span> the process changes state to
+<span class="math inline">\(X(t)=s\)</span>,.
+The composite state <span class="math inline">\(s\)</span> may be rather intricate, specifying the
+state of every individual in the system explicitly or
+implicitly. Stochastic processes are usually described as time
+driven. This has led to a whole simulation industry in stochastic
+dynamic programs (Hutchinson and McNamara 2000), stepping through
+finer and finer time increments to approach “reality”.</p>
+<p>Imagine a living system as a sequence of events, beginning in state
+<span class="math inline">\(s_0\)</span> at time <span class="math inline">\(t_0=0\)</span>, with events, or state transitions,
+<span class="math inline">\(s_0 \rightarrow s_1 \rightarrow s2 \rightarrow\cdots\)</span>
+and event times <span class="math inline">\(t_1 &lt; t_2 &lt; \cdots\)</span>,. If the structure of
+the system does not change, events can be scheduled as far forward as
+desired. However, a change in state may alter the entire state space
+for the future of the stochastic process. Thus <span class="math inline">\(X\)</span> actually
+depends on both time <span class="math inline">\(t\)</span> and the current state <span class="math inline">\(s\)</span>. Imagine a
+progression of stochastic processes indexed by the current state,
+<span class="math inline">\(\{X(t, s_k), t&gt; t_k\}\)</span>,,
+<span class="math inline">\(k=0,1,\cdots\)</span>, with <span class="math inline">\(s_k\)</span> the current state after the future
+event at time <span class="math inline">\(t_k\)</span>,. The realization of this stochastic process
+is equivalent to a sequence <span class="math inline">\((t_0,s_0), (t_1,
+s_1),\cdots, (t_k,s_k), \cdots\)</span>,. While this can
+theoretically be accommodated within the framework of semi-Markov
+processes by extending the sample space to be arbitrarily large, it
+provides little insight into how to implement a simulation in
+practice. Even for small simulations, this structure can become
+cumbersome and expensive, as the occurrence of each event requires
+rebuilding the entire event space.</p>
+<p>Think of a living process as moving from event to event, with time
+defined implicitly through the sequence of realized events, yielding a
+practical construction of simulations. That is, if the current state
+is <span class="math inline">\(s_1\)</span> was realized at time <span class="math inline">\(t_1\)</span>, then the future event
+<span class="math inline">\(s_1\rightarrow s_2\)</span> could happen at some random future time
+<span class="math inline">\(t_2 = t(s_1\rightarrow s_2 \vert t_1,
+s_1)\)</span>,.
+This property allows a smooth transition between the time domain of
+the biological system and the event domain in modeling the biological
+system.</p>
+<p>The investigator decides up front the aspects of a biological system
+to be studied based on measurable events and the focus of scientific
+inquiry, implicitly setting the resolution and span of the
+model. {} is the smallest
+increment of time and space that contributes useful biological
+information, with events over smaller scales assumed to occur
+instantaneously. A finer scale model would increase the cost of
+simulation while providing negligible insight. {} is the largest amount of time and space the
+model can encompass, with aspects occurring over longer intervals
+considered as essentially constant or slowly varying in a smooth
+fashion. Changing the resolution and span of a model profoundly
+affects what features of a biological system can be studied, and vice
+versa. For example, an {} parasite feeding on California
+red scale would appear to be instantaneous with a resolution of
+minutes, but would require detailed modelling with a resolution of
+seconds. A mature orange fruit could be considered static as a
+substrate for red scale over a span of six months. It may be
+appropriate to model at several different spatial and temporal spans
+and resolutions to address different facets of a biological system.</p>
+We can schedule the next event for every individual in a
+population. However, individuals may interact, in some cases leading
+to births or deaths that can change the structure of the system. We
+define three special types of events to address these contingencies:
+<p>It is helpful to draw connections to Petri nets (cf. Ajmone Marsan et
+al. 1995; Lindemann 1998), which put equal emphasis on states (places)
+and events (transitions) connected by arcs. Future events are
+instantaneous transitions from places that have continuous, stochastic
+delay times. Individuals (tokens) are reserved for an instantaneous
+transition by the scheduling of a future event, for instance, an
+insect scheduled to molt between instar stages. Future events may
+involve a stochastic choice among several competing risks, such as
+whether to feed or lay eggs, whether to search for food or
+move. Competing risks are analogous to race policies for conflicts in
+Petri nets, although our emphasis is on modelling the stochastic
+decision process itself.</p>
+<p>Developmental stage transitions are clearly defined future events,
+while reproduction can be viewed as a future event when mates are
+abundant. Reproduction yielding new offspring triggers multiple
+immediate events. These immediate birth events, represented
+graphically as multiple arcs emerging from the reproduction event,
+correspond to deterministic events in Petri net literature. Typically
+immediate events result in scheduling of several future events. For
+instance, birth brings new individuals into the simulation, each
+having scheduled future developmental transitions.</p>
+<p>Death is often a pending event, since it may hinge on locating and
+consuming an adequate amount of resources while avoiding predation. We
+focus on “finding food” rather than “food availability”, modelling the
+process of obtaining a resource as well as its presence. Pending
+events depend conditionally on other events and on the model state,
+such as cooperation among individuals for group hunting or germination
+of fire-sensitive seeds. Pending events are not scheduled in advance,
+avoiding the need for a complicated competing risks structure
+involving groups of individuals. Instead, pending events are
+interruptions to individual life histories arising from environmental
+changes or events involving other individuals. We represent pending
+events by dashed arcs to distinguish them from future events. If an
+individual is interrupted by parasitism, the pending event of being
+parasitized is realized. The individual may be killed or hurt in some
+way, depending on the nature of parasitism, canceling or altering its
+previously schedule future event.</p>
+<p>Pending and future events depend on context and the detail of
+modelling of a biological system. For instance, reproduction could
+involve a pending event: a female realizes a future event of being
+fertile, and then searches for a mate, which has a pending event of
+reproduction. Conversely, death could be a future event of dying due
+to natural causes or a slow illness.</p>
+</div>
+<div id="minimization-structure-within-across-individuals" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Minimization structure within, across individuals<a href="event.html#minimization-structure-within-across-individuals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="modelling-event-to-event" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Modelling event to event<a href="event.html#modelling-event-to-event" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="non-homogeneous-poisson-process-rebuilt-at-every-event" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Non-homogeneous Poisson process rebuilt at every event<a href="event.html#non-homogeneous-poisson-process-rebuilt-at-every-event" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="event-span-resolution" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Event, span, resolution<a href="event.html#event-span-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="futureimmediatepending-events" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Future/immediate/pending events<a href="event.html#futureimmediatepending-events" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="competing-risks-for-life-events" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Competing Risks for Life Events<a href="event.html#competing-risks-for-life-events" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Competing risks arose initially in mortality studies of risks that
+“compete” for an individual’s life (Chiang 1968, 1972). Competing
+risks and related life table methods have been used regularly in
+ecological modelling (Caswell 1989), usually with discrete,
+synchronized generations. Here we adapt the building blocks of
+competing risks to study life history events for asynchronous,
+interacting individuals in an ecological community. We show how the
+linear structure of competing risks over continuous time allows a
+simple modelling approach, as we only need to examine the next
+scheduled event in an ecological community. In addition, we introduce
+a parameterization of the cumulative risk, or mean value function,
+that allows quick adjustment of individual biological clocks.</p>
+<p>The theory of competing risks arose initially in the study of
+mortality, with risks of death `competing’ for an individual’s
+life. The theory applies equally to reliability of machines and the
+study of illness processes, and is intimately connected with the study
+of life tables (Chiang 1968). It provides a mechanistic way to model
+how critical events evolve moment to moment, influenced by the
+surrounding environment. Competing risks and life table methods have
+been used regularly in ecological modeling [ref?]. We reconsider the
+implications of theoretical developments in competing risks on the
+future of ecological modeling.</p>
+<p>One can model the effect of the environment and an individual’s life
+stage on these competing risks in a variety of ways. Keyfitz (1966,
+1968) and others developed complicated methods to incorporate birth
+and death processes into life tables indexed by age and gender. Chiang
+(1968, 1972) provided a simple unifying probability framework for life
+tables and competing risks, which tacitly assumes that events of
+interest occur at particular ages (e.g. every 5 years for humans) in
+order to make the process identifiable. The proportional hazards model
+(Cox 1972) and accelerated lifetimes model () have allowed researchers
+to consider smoothly varying competing risks. Recent efforts allow
+interdependence among risks (Fine 1999). This literature has been
+largely focused on inference for competing risks.</p>
+<p>While the competing risks literature has largely focused on inference
+(cf. Fine 1999), we concentrate on simulation models grounded in
+measurable events. Fix and Neyman (1951) introduced an illness-death
+process, generalized by Chiang (1968), with individuals moving between
+healthy and sick states, continually exposed to competing risks of
+death. Clifford (1977) proved the non-identifiability of competing
+risks with a single measurement per individual even if an illness is
+progressive. Yandell (1982) showed that independent competing risks
+can only be identified with measurements at the actual times of
+transition between states. Thus it is crucial to select events whose
+time of occurrence can be estimated. Simulation models should reflect
+this constraint.</p>
+<p>The ethologist tries to define probabilities for each event to reflect
+the observed data. Since events contain all the measured dynamics for
+the population, there is an added advantage in modelling simulations
+from the event domain. Future events change time in the model and
+control the competing risk sequencing. When a future event occurs, the
+simulation stops. Action is taken on any immediate events induced by
+the future event, and any pending events are modified as
+necessary. Immediate or pending events can change the underlying
+structure of the model, requiring the rebuilding of the stochastic
+process. In most situations, only a few competing risks are altered by
+immediate or pending events, requiring only modest changes to other
+scheduled future events. Finally, the stochastic process is
+reconstructed to contain only future events from the current time
+onward.</p>
+<p>Thus a biological system can be simulated by alternating between
+future events and immediate events, and addressing pending events as
+they arise. However, the competing risks structure for future events
+now depends on the past history of events. Risks may be altered by
+discrete state changes of other individuals or by discrete or gradual
+changes in environmental conditions. Nevertheless the stochastic
+process is still predictable and hence is still well defined.</p>
+<div id="competing-risk-structure" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Competing risk structure<a href="event.html#competing-risk-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An individual in an ecological community has several “choices” about
+future events, such as dying from one of several competing reasons,
+eating, reproducing, or migrating to another locale. The chance of the
+<span class="math inline">\(j\)</span>th type of event occurring during the time “instant” <span class="math inline">\(t\)</span> is
+proportional to its competing risk, or hazard, <span class="math inline">\(m_j(t)\)</span>, which
+may change over time but is assumed to be fairly well-behaved. We
+assume the probability of two or more events occurring simultaneously
+is negligible. Thus the risks add up to the chance of any event in an
+instant as <span class="math inline">\(m(t) = \sum m_j(t)\)</span>. The cumulative
+competing risks, or mean value functions
+<span class="math inline">\(M_j(t) = \int m_j(t)dt\)</span>
+with <span class="math inline">\(M_j(0) = 0\)</span>,
+count the expected number of events of type <span class="math inline">\(j\)</span> up to time
+<span class="math inline">\(t\)</span>. These are assumed to be right-continuous and non-decreasing
+with derivative <span class="math inline">\(m_j(t)\)</span> at all but a countable number of time
+points. The random count of the number of events over time is a
+non-homogeneous Poisson process with time-varying risks and
+independent increments between distinct time intervals.</p>
+<p>An alternative approach models potential life (or event) times
+<span class="math inline">\(T_j\)</span> for each type of risk <span class="math inline">\(j\)</span> ({}. David 1974). The
+observed time to next event would be the minimum of these potential
+event times, <span class="math inline">\(T= \min\{T_j\}\)</span>,. Hence, the chance that no
+event occurs before time <span class="math inline">\(t\)</span> is
+<span class="math display">\[
+\mbox{pr}\{T&gt; t\} = \mbox{pr}\{\min(T_j) &gt; t\}
+= \prod\mbox{pr}\{T_j &gt; t\} = \prod\exp(-M_j(t))
+= exp\{-\sum M_j(t)\}~.
+\]</span>
+The product <span class="math inline">\(\prod\)</span> is justified if the potential event times, or
+equivalently the competing risks, are independent. The linearization
+property reduces a potentially complicated probability to a summation
+over the competing risk structure. Tsiatis (1975) showed that without
+independence <span class="math inline">\(T_j\)</span>, and hence <span class="math inline">\(M_j(t)\)</span> and the
+sub-probabilities <span class="math inline">\(\mbox{pr}\{T_j &gt; t\}\)</span>,, cannot be uniquely
+determined from data. Further, it is impossible to investigate this
+assumption of independence with these data; as a result, these
+potential lifetimes have fallen out of favor. While we agree that
+inference cannot be based on these potential event times, they can be
+extremely useful for simulation models of complex living systems.</p>
+<p>Each individual i has a set of potential times
+<span class="math inline">\(\{T_{ij}, j = 1, 2, \cdots\}\)</span>
+for its future events. These may depend on the history and current
+state of the biological system. Its next future event is at the
+minimum <span class="math inline">\(T_i = \min\{T_{ij}\}\)</span>,. The next event in a
+community of <span class="math inline">\(r\)</span> individuals occurs at the minimum over all
+individuals,
+<span class="math inline">\(T= \min\{T_i, i = 1, \cdots,r\}\)</span>,.
+In a simulation with a high degree of structure and many levels of
+events, this minimization property provides an efficient method to
+find the next event for the community. Note that the mean number of
+events for a community is the sum <span class="math inline">\(M(t) =
+\sum M_i(t)\)</span>, with the mean number for individual <span class="math inline">\(i\)</span> being
+<span class="math inline">\(M_i(t) = \sum M_{ij}(t)\)</span>,. That is, the
+competing risk structure until the next future event decomposes in
+this linear fashion as if the individuals were independent.</p>
+</div>
+<div id="time-depends-on-events" class="section level3 hasAnchor" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Time depends on events<a href="event.html#time-depends-on-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Control over the shape of the mean value functions <span class="math inline">\(M\)</span> allows
+considerable flexibility to incorporate relevant knowledge of
+biological processes into the distribution of the scheduling time
+<span class="math inline">\(T\)</span>. The mean value function <span class="math inline">\(M\)</span> could be “guestimated”
+from prior experimental data, partial knowledge and hunches. We show
+in this section how to schedule future events by drawing uniform or
+exponential random numbers and using <span class="math inline">\(M\)</span> to transform to future
+event times.</p>
+<p>Consider a single individual and a single competing risk, dropping
+subscripts for now. We can schedule the time <span class="math inline">\(T\)</span> for its next
+future event by picking a random probability <span class="math inline">\(U\)</span>, uniform between
+0 and 1, and defining time <span class="math inline">\(T\)</span> in terms of <span class="math inline">\(U\)</span> as
+<span class="math inline">\(M^{-1}(G(U)) = T\)</span>
+with
+<span class="math inline">\(G(u) = -\log(1-u)\)</span>
+and <span class="math inline">\(M^{-1}\)</span> the (generalized) inverse of <span class="math inline">\(M\)</span>. Thus
+<span class="math display">\[
+\mbox{pr}\{U= u\} = u= 1 - \exp(-M(t)) = \mbox{pr}\{T= t\}
+\]</span>
+with some adjustment necessary for the chance
+<span class="math inline">\(\mbox{pr}\{T= \infty\} \geq 0\)</span>
+that no event occurs. Hence, time <span class="math inline">\(T\)</span> becomes an implicit,
+dependent variable, driven by the event structure embodied in
+<span class="math inline">\(M\)</span>. Figure 4 shows this mapping for a distribution that has a
+plateau in the middle.</p>
+<p>&lt;&lt;Figure 4 about here&gt;&gt;</p>
+<p>The random variate <span class="math inline">\(v= M^{-1}(U) = M(T)\)</span> has a
+standard exponential distribution
+<span class="math inline">\(\mbox{pr}\{V= v\} = 1 - \exp(-v)\)</span>,.
+If the risk is constant,
+<span class="math inline">\(m(t) = c\)</span>, then <span class="math inline">\(T= V/ c\)</span>,.
+Sampling <span class="math inline">\(V\)</span> instead of <span class="math inline">\(U\)</span> involves only modest extra
+work (Ahrens and Dieter 1974, 1988) and avoids calculating logs, which
+are expensive computationally. Events may therefore be scheduled by
+sampling a standard exponential random variable and constructing the
+random time <span class="math inline">\(T\)</span> as <span class="math inline">\(M^{-1}(V) = T\)</span> using the fact that
+<span class="math inline">\(\mbox{pr}\{V= M(t)\} = \mbox{pr}\{T= t\}\)</span>,.
+Thus the mean value function transforms the exponential waiting
+time <span class="math inline">\(V\)</span> based on constant risks to a biological time that may encompass
+the ongoing processes of the simulated ecosystem (see Figure 4).</p>
+</div>
+<div id="event-structure-for-individual" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Event structure for individual<a href="event.html#event-structure-for-individual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This generic mean value function <span class="math inline">\(M\)</span> must be fine-tuned to each
+individual in a species, and to different species in a
+community. Future event times may need to be adjusted based on
+individual histories and situations. In practice, many individuals may
+have similarly shaped mean value functions for a given competing
+risk. Changes during the simulation may slow or delay each biological
+clock, or increase the risk of certain types of events. Thus it is
+feasible to design a few such curves and then shift, stretch or
+otherwise modify them to suit multiple needs. This can enhance the
+biologist’s control over model simulations while keeping the decisions
+simple. The development below shows how this generic biological time
+can be easily modified to adjust to individual biological clocks. It
+allows considerable flexibility with environmental effects and
+interactions among individuals.</p>
+</div>
+<div id="five-dimensional-parameterization" class="section level3 hasAnchor" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> Five-dimensional parameterization<a href="event.html#five-dimensional-parameterization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each individual <span class="math inline">\(i\)</span> and possible future event <span class="math inline">\(j\)</span>, there is a mean
+value function <span class="math inline">\(M_{ij}\)</span> and a random potential times
+<span class="math inline">\(T_{ij}\)</span> when that future event may be scheduled to occur. We
+characterize possible modifications to an underlying common mean value
+function <span class="math inline">\(M_j(t)\)</span> in terms of five non-negative parameters
+that approximately transform clock time into individual biological
+time: <span class="math inline">\(a\)</span> = dispersion, <span class="math inline">\(b\)</span> = location, <span class="math inline">\(c\)</span> = intensity, <span class="math inline">\(d\)</span> =
+truncation and <span class="math inline">\(e\)</span> = rejection (Table 1). <span class="math inline">\(M_j(t)\)</span> is
+developed using prior experimental knowledge, but the five parameters
+change during the simulation based on an individual’s life
+history. The future event time is scheduled by sampling <span class="math inline">\(V\)</span> and
+setting
+<span class="math display">\[
+T_{ij} = M_{ij}^{-1}(V) = aM_j^{-1}[(G(d) + V) / c] + b
+\]</span>
+unless <span class="math inline">\(V= G(e)\)</span>, in which case the event is rejected
+(censored) and hence never scheduled. Further, events before time
+<span class="math inline">\(aM_j^{-1}(G(d)/c) + b\)</span>
+are truncated and never observed. Dispersion <span class="math inline">\(a\)</span> is analogous to Cox’s
+(1972) proportional hazards, while intensity <span class="math inline">\(c\)</span> corresponds to
+accelerated lifetime (Viertl 1988; Clarotti and Lindley 1988).</p>
+<p>&lt;&lt;Figure 5 about here&gt;&gt;</p>
+<p>The flexibility of this family of curves is illustrated in Figure 5,
+where each parameter except rejection is varied individually. Figure 6
+shows how to achieve a modest reduction or extension in mean time to
+event by changing each of the five parameters, with markedly different
+results. These parameters adjust individual biological clocks with
+useful, intuitive biological interpretations. Dispersion can slow or
+speed the time to the next event. Location is often set to the time of
+the previous future event, or it can shift probabilities uniformly,
+postponing events in response to changing conditions. Intensity can
+raise or lower the mean number of future events, while keeping the
+same shape <span class="math inline">\(M\)</span>, corresponding to changes in the environment such
+as reduced food supply.</p>
+<p>&lt;&lt;Figure 6 about here&gt;&gt;</p>
+<p>Truncation and rejection ease simulation of immigration and
+emigration, respectively. Immigrants can move into an area and
+continue life processes based on imperfect information. An important
+future event for such a truncated individual may have happened at some
+unknown time before it entered the simulation. Emigrants can leave an
+area with future events unknown and irrelevant. Rejection allows
+removal of such individuals, eliminating scheduling of their future
+events. As an example, consider an adult {} arriving at an orange
+to attack red scale. This individual may enter the simulation with
+very little knowledge of its previous life history except its age, egg
+load and direction of travel. The {} is an immigrant, with a
+truncated life history. Eventually this invader may oviposit in red
+scale, laying eggs, and ultimately creating a new population of adult
+{} that may either attack nearby red scale, or emigrate to
+another orange tree. Finally the original flying adult may leave the
+orange, never to return. While it, and its offspring, may attack other
+red scale, it is lost to the present simulation. Therefore at
+emigration its remaining life history is rejected, as its future is
+irrelevant.</p>
+</div>
+<div id="handling-immediate-events" class="section level3 hasAnchor" number="5.7.5">
+<h3><span class="header-section-number">5.7.5</span> Handling immediate events<a href="event.html#handling-immediate-events" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are occasions when it may be appropriate to schedule an event
+without knowing its outcome. At the time of that future event, its
+specific outcome may be predicted based on the environment and current
+state of the simulation. Which of the n hosts is attacked by a
+parasite? The future event is scheduled based on the parasite, but its
+consequence disrupts a particular host, chosen when the parasitism
+event occurs as an immediate event. Hosts in the vicinity of the
+parasite are scored in terms of proximity, size, developmental stage
+and other factors that may affect the chance of being chosen. The
+parasite selects a host on which to oviposit with probability
+proportional to this score. Once a host is selected, there is a
+further chance mechanism as to whether a male or female egg would be
+oviposited. Either way, the red scale is immediately rescheduled for
+death (see Figure 3).</p>
+<p>In some situations, it may be more appropriate to schedule the future
+event of a prey dying, handling the predators with immediate
+events. For instance with a host death at time <span class="math inline">\(t\)</span>, the
+probability that predator <span class="math inline">\(i\)</span> is the primary beneficiary may be
+proportional to its mean value function,</p>
+<p><span class="math display">\[
+p_i = M_i(t) / M(t), i = 1, \cdots, r~.
+\]</span>
+The immediate event that predator <span class="math inline">\(i\)</span> has the kill is processed with
+probability <span class="math inline">\(p_i\)</span>. This immediate event may cause scheduling of future
+feeding events for one or more other predators, based on how much the
+top predator consumes. Once these are scheduled, the process continues
+as before, but with a newly modified competing risk structure.</p>
+<p>An immediate event that spawns multiple future events may need a
+decision of how many events are to be created. The number of live
+births may be random, and hence can be drawn from an appropriate
+distribution, say a histogram based on experimental data suitably
+modified by environmental considerations (temperature), health of the
+individual, and actions of other individuals.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prob.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sim.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/05-event.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["ewing_book.pdf", "ewing_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

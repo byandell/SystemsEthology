@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Probabilistic Nature of Individual Behavior | Systems Ethology</title>
+  <meta name="description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Probabilistic Nature of Individual Behavior | Systems Ethology" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="github-repo" content="byandell/ewing_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Probabilistic Nature of Individual Behavior | Systems Ethology" />
+  
+  <meta name="twitter:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  
+
+<meta name="author" content="Bland Ewing, Brian S Yandell, James F Barbieri, Robert F Luck, Lisa D Forster" />
+
+
+<meta name="date" content="2026-04-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="field-biologists-and-the-collection-of-data-field.html"/>
+<link rel="next" href="event.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative Population Ethology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="qpe.html"><a href="qpe.html"><i class="fa fa-check"></i><b>1</b> Why Quantitative Population Ethology?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="qpe.html"><a href="qpe.html#maleable-tools-for-the-field-biologists"><i class="fa fa-check"></i><b>1.1</b> Maleable Tools for the Field Biologists</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="qpe.html"><a href="qpe.html#tying-simulations-to-field-data"><i class="fa fa-check"></i><b>1.1.1</b> Tying simulations to field data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="qpe.html"><a href="qpe.html#simulating-millions-of-organisms"><i class="fa fa-check"></i><b>1.2</b> Simulating Millions of Organisms</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="qpe.html"><a href="qpe.html#limitations-of-brute-force-computing"><i class="fa fa-check"></i><b>1.2.1</b> Limitations of brute force computing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="qpe.html"><a href="qpe.html#loose-coupling-of-model-cascades"><i class="fa fa-check"></i><b>1.2.2</b> Loose coupling of model cascades</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="qpe.html"><a href="qpe.html#from-individual-behavior-to-evolution"><i class="fa fa-check"></i><b>1.3</b> From Individual Behavior to Evolution</a></li>
+<li class="chapter" data-level="1.4" data-path="qpe.html"><a href="qpe.html#discussion-from-qpe"><i class="fa fa-check"></i><b>1.4</b> Discussion from QPE</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="classical.html"><a href="classical.html"><i class="fa fa-check"></i><b>2</b> Limitations of Classical Models</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="classical.html"><a href="classical.html#mathematical-biology"><i class="fa fa-check"></i><b>2.1</b> Mathematical Biology</a></li>
+<li class="chapter" data-level="2.2" data-path="classical.html"><a href="classical.html#biology-vs.-physics"><i class="fa fa-check"></i><b>2.2</b> Biology vs. Physics</a></li>
+<li class="chapter" data-level="2.3" data-path="classical.html"><a href="classical.html#predator-prey-models"><i class="fa fa-check"></i><b>2.3</b> Predator-Prey Models</a></li>
+<li class="chapter" data-level="2.4" data-path="classical.html"><a href="classical.html#classical-differential-equation-models"><i class="fa fa-check"></i><b>2.4</b> Classical Differential Equation Models</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="classical.html"><a href="classical.html#early-work-the-holling-predation-studies"><i class="fa fa-check"></i><b>2.4.1</b> Early Work: The Holling Predation Studies</a></li>
+<li class="chapter" data-level="2.4.2" data-path="classical.html"><a href="classical.html#lotka-volterra-leslie-matrices"><i class="fa fa-check"></i><b>2.4.2</b> Lotka-Volterra, Leslie matrices</a></li>
+<li class="chapter" data-level="2.4.3" data-path="classical.html"><a href="classical.html#time-and-phase-space"><i class="fa fa-check"></i><b>2.4.3</b> Time and phase space</a></li>
+<li class="chapter" data-level="2.4.4" data-path="classical.html"><a href="classical.html#stable-cycles-and-chaos"><i class="fa fa-check"></i><b>2.4.4</b> Stable cycles and chaos</a></li>
+<li class="chapter" data-level="2.4.5" data-path="classical.html"><a href="classical.html#quadratic-and-linear-equations-in-optimization-research"><i class="fa fa-check"></i><b>2.4.5</b> Quadratic and Linear Equations in Optimization Research</a></li>
+<li class="chapter" data-level="2.4.6" data-path="classical.html"><a href="classical.html#limitations"><i class="fa fa-check"></i><b>2.4.6</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="classical.html"><a href="classical.html#life-tables-and-competing-risks"><i class="fa fa-check"></i><b>2.5</b> Life tables and competing risks</a></li>
+<li class="chapter" data-level="2.6" data-path="classical.html"><a href="classical.html#synchronized-generations"><i class="fa fa-check"></i><b>2.6</b> Synchronized generations</a></li>
+<li class="chapter" data-level="2.7" data-path="classical.html"><a href="classical.html#time-driven-simulation-models"><i class="fa fa-check"></i><b>2.7</b> Time Driven Simulation Models</a></li>
+<li class="chapter" data-level="2.8" data-path="classical.html"><a href="classical.html#population-size-continuous-or-discrete"><i class="fa fa-check"></i><b>2.8</b> Population size: continuous or discrete</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="classical.html"><a href="classical.html#time-almost-always-one-unit"><i class="fa fa-check"></i><b>2.8.1</b> Time almost always one unit</a></li>
+<li class="chapter" data-level="2.8.2" data-path="classical.html"><a href="classical.html#stochastic-dynamic-systems"><i class="fa fa-check"></i><b>2.8.2</b> Stochastic dynamic systems</a></li>
+<li class="chapter" data-level="2.8.3" data-path="classical.html"><a href="classical.html#discrete-time-stochastic-petri-nets"><i class="fa fa-check"></i><b>2.8.3</b> Discrete time stochastic Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="classical.html"><a href="classical.html#event-driven-petri-nets"><i class="fa fa-check"></i><b>2.9</b> Event-driven Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="field-biologists-and-the-collection-of-data-field.html"><a href="field-biologists-and-the-collection-of-data-field.html"><i class="fa fa-check"></i><b>3</b> Field Biologists and the Collection of Data {#field}}</a></li>
+<li class="chapter" data-level="4" data-path="prob.html"><a href="prob.html"><i class="fa fa-check"></i><b>4</b> Probabilistic Nature of Individual Behavior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prob.html"><a href="prob.html#properties-of-an-individual"><i class="fa fa-check"></i><b>4.1</b> Properties of an individual</a></li>
+<li class="chapter" data-level="4.2" data-path="prob.html"><a href="prob.html#interactions-among-individuals-in-community"><i class="fa fa-check"></i><b>4.2</b> Interactions among individuals in community</a></li>
+<li class="chapter" data-level="4.3" data-path="prob.html"><a href="prob.html#field-sampling-process"><i class="fa fa-check"></i><b>4.3</b> Field sampling process</a></li>
+<li class="chapter" data-level="4.4" data-path="prob.html"><a href="prob.html#quantization-of-eventsstates"><i class="fa fa-check"></i><b>4.4</b> Quantization of events/states</a></li>
+<li class="chapter" data-level="4.5" data-path="prob.html"><a href="prob.html#quantization-of-timespace"><i class="fa fa-check"></i><b>4.5</b> Quantization of time/space</a></li>
+<li class="chapter" data-level="4.6" data-path="prob.html"><a href="prob.html#heisenberg-uncertainty-principle"><i class="fa fa-check"></i><b>4.6</b> Heisenberg uncertainty principle</a></li>
+<li class="chapter" data-level="4.7" data-path="prob.html"><a href="prob.html#games-of-skill-and-chance"><i class="fa fa-check"></i><b>4.7</b> Games of Skill and Chance</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="prob.html"><a href="prob.html#backgammon"><i class="fa fa-check"></i><b>4.7.1</b> Backgammon</a></li>
+<li class="chapter" data-level="4.7.2" data-path="prob.html"><a href="prob.html#bridge"><i class="fa fa-check"></i><b>4.7.2</b> Bridge</a></li>
+<li class="chapter" data-level="4.7.3" data-path="prob.html"><a href="prob.html#chess"><i class="fa fa-check"></i><b>4.7.3</b> Chess</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="event.html"><a href="event.html"><i class="fa fa-check"></i><b>5</b> Event-Driven Competing Risks Structure</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="event.html"><a href="event.html#event-driven-considerations-for-living-systems"><i class="fa fa-check"></i><b>5.1</b> Event-Driven Considerations for Living Systems</a></li>
+<li class="chapter" data-level="5.2" data-path="event.html"><a href="event.html#minimization-structure-within-across-individuals"><i class="fa fa-check"></i><b>5.2</b> Minimization structure within, across individuals</a></li>
+<li class="chapter" data-level="5.3" data-path="event.html"><a href="event.html#modelling-event-to-event"><i class="fa fa-check"></i><b>5.3</b> Modelling event to event</a></li>
+<li class="chapter" data-level="5.4" data-path="event.html"><a href="event.html#non-homogeneous-poisson-process-rebuilt-at-every-event"><i class="fa fa-check"></i><b>5.4</b> Non-homogeneous Poisson process rebuilt at every event</a></li>
+<li class="chapter" data-level="5.5" data-path="event.html"><a href="event.html#event-span-resolution"><i class="fa fa-check"></i><b>5.5</b> Event, span, resolution</a></li>
+<li class="chapter" data-level="5.6" data-path="event.html"><a href="event.html#futureimmediatepending-events"><i class="fa fa-check"></i><b>5.6</b> Future/immediate/pending events</a></li>
+<li class="chapter" data-level="5.7" data-path="event.html"><a href="event.html#competing-risks-for-life-events"><i class="fa fa-check"></i><b>5.7</b> Competing Risks for Life Events</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="event.html"><a href="event.html#competing-risk-structure"><i class="fa fa-check"></i><b>5.7.1</b> Competing risk structure</a></li>
+<li class="chapter" data-level="5.7.2" data-path="event.html"><a href="event.html#time-depends-on-events"><i class="fa fa-check"></i><b>5.7.2</b> Time depends on events</a></li>
+<li class="chapter" data-level="5.7.3" data-path="event.html"><a href="event.html#event-structure-for-individual"><i class="fa fa-check"></i><b>5.7.3</b> Event structure for individual</a></li>
+<li class="chapter" data-level="5.7.4" data-path="event.html"><a href="event.html#five-dimensional-parameterization"><i class="fa fa-check"></i><b>5.7.4</b> Five-dimensional parameterization</a></li>
+<li class="chapter" data-level="5.7.5" data-path="event.html"><a href="event.html#handling-immediate-events"><i class="fa fa-check"></i><b>5.7.5</b> Handling immediate events</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sim.html"><a href="sim.html"><i class="fa fa-check"></i><b>6</b> Simulation Mechanics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sim.html"><a href="sim.html#choice-of-modeling-system"><i class="fa fa-check"></i><b>6.1</b> Choice of Modeling System</a></li>
+<li class="chapter" data-level="6.2" data-path="sim.html"><a href="sim.html#cubic-splines"><i class="fa fa-check"></i><b>6.2</b> Cubic splines</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="sim.html"><a href="sim.html#time-to-event-based-on-data-or-intuition"><i class="fa fa-check"></i><b>6.2.1</b> Time to event based on data or intuition</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sim.html"><a href="sim.html#translating-time-to-degree-days-and-back"><i class="fa fa-check"></i><b>6.2.2</b> Translating time to degree-days and back</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sim.html"><a href="sim.html#spatial-components"><i class="fa fa-check"></i><b>6.3</b> Spatial components</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="sim.html"><a href="sim.html#tridiagonal-coordinate-system"><i class="fa fa-check"></i><b>6.3.1</b> Tridiagonal coordinate system</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sim.html"><a href="sim.html#sierpinski-gasket"><i class="fa fa-check"></i><b>6.3.2</b> Sierpinski gasket</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sim.html"><a href="sim.html#icosohedrontriangular-cylinder-for-objects"><i class="fa fa-check"></i><b>6.3.3</b> Icosohedron/triangular cylinder for objects</a></li>
+<li class="chapter" data-level="6.3.4" data-path="sim.html"><a href="sim.html#smooth-integration-between-triangles"><i class="fa fa-check"></i><b>6.3.4</b> Smooth integration between triangles</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="sim.html"><a href="sim.html#priority-queues"><i class="fa fa-check"></i><b>6.4</b> Priority queues</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="sim.html"><a href="sim.html#partial-ordering-of-individuals-based-on-next-future-event"><i class="fa fa-check"></i><b>6.4.1</b> Partial ordering of individuals based on next future event</a></li>
+<li class="chapter" data-level="6.4.2" data-path="sim.html"><a href="sim.html#dynamic-storage-allocation"><i class="fa fa-check"></i><b>6.4.2</b> Dynamic storage allocation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sim.html"><a href="sim.html#pseudo-randomization"><i class="fa fa-check"></i><b>6.5</b> Pseudo-Randomization</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="sim.html"><a href="sim.html#generalized-feedback-shift-registers"><i class="fa fa-check"></i><b>6.5.1</b> Generalized feedback shift registers</a></li>
+<li class="chapter" data-level="6.5.2" data-path="sim.html"><a href="sim.html#exponential-random-values"><i class="fa fa-check"></i><b>6.5.2</b> Exponential random values</a></li>
+<li class="chapter" data-level="6.5.3" data-path="sim.html"><a href="sim.html#sierpinski-gasket-order-direction"><i class="fa fa-check"></i><b>6.5.3</b> Sierpinski gasket: order, direction</a></li>
+<li class="chapter" data-level="6.5.4" data-path="sim.html"><a href="sim.html#fractal-nature-of-spatial-search-algorithms"><i class="fa fa-check"></i><b>6.5.4</b> Fractal nature of spatial search algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="sim.html"><a href="sim.html#curse-of-dimensionality"><i class="fa fa-check"></i><b>6.6</b> Curse of Dimensionality</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="sim.html"><a href="sim.html#calculations-linear-in-number-of-individuals-ave.-number-of-life-events"><i class="fa fa-check"></i><b>6.6.1</b> Calculations linear in number of individuals * ave. number of life events</a></li>
+<li class="chapter" data-level="6.6.2" data-path="sim.html"><a href="sim.html#ramping-up-from-hundreds-to-millions"><i class="fa fa-check"></i><b>6.6.2</b> Ramping up from hundreds to millions</a></li>
+<li class="chapter" data-level="6.6.3" data-path="sim.html"><a href="sim.html#quasi-parallel-computation"><i class="fa fa-check"></i><b>6.6.3</b> Quasi-parallel computation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="sim.html"><a href="sim.html#efficient-use-of-supercomputer-clusters"><i class="fa fa-check"></i><b>6.6.4</b> Efficient use of supercomputer clusters</a></li>
+<li class="chapter" data-level="6.6.5" data-path="sim.html"><a href="sim.html#loosely-connected-communities"><i class="fa fa-check"></i><b>6.6.5</b> Loosely connected communities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="sim.html"><a href="sim.html#future-considerations"><i class="fa fa-check"></i><b>6.7</b> Future Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Data Integration</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#sample-splitter-to-count-insects"><i class="fa fa-check"></i><b>7.1</b> Sample splitter to count insects</a></li>
+<li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#organization-of-data-in-relational-database"><i class="fa fa-check"></i><b>7.2</b> Organization of data in relational database</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data.html"><a href="data.html#access-postgresql"><i class="fa fa-check"></i><b>7.2.1</b> Access, PostgresQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data.html"><a href="data.html#beyond-h5-used-for-satellite-images-microarray-data"><i class="fa fa-check"></i><b>7.2.2</b> Beyond: H5(?) used for satellite images, microarray data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#tying-data-to-events"><i class="fa fa-check"></i><b>7.3</b> Tying data to events</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html"><i class="fa fa-check"></i><b>8</b> Biology of Red Scale and its Parasitoids {# redscale}</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#detailed-life-histories"><i class="fa fa-check"></i><b>8.1</b> Detailed life histories</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#red-scale-life-history"><i class="fa fa-check"></i><b>8.1.1</b> Red Scale Life History</a></li>
+<li class="chapter" data-level="8.1.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#aphytis-life-history"><i class="fa fa-check"></i><b>8.1.2</b> Aphytis Life History</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#interaction-events-endo--ecto--hyper-parasitism"><i class="fa fa-check"></i><b>8.2</b> Interaction events: endo-, ecto-, hyper-parasitism</a></li>
+<li class="chapter" data-level="8.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#diurnal-and-degree-day-effects-seasonal-effects"><i class="fa fa-check"></i><b>8.3</b> Diurnal and degree-day effects; seasonal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#position-in-tree"><i class="fa fa-check"></i><b>8.4</b> Position in tree</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#orangebranchleaf"><i class="fa fa-check"></i><b>8.4.1</b> Orange/branch/leaf</a></li>
+<li class="chapter" data-level="8.4.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#exteriormain-trunk"><i class="fa fa-check"></i><b>8.4.2</b> Exterior/main trunk</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#search-algorithms"><i class="fa fa-check"></i><b>8.5</b> Search algorithms</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#parasite-for-host"><i class="fa fa-check"></i><b>8.5.1</b> Parasite for host</a></li>
+<li class="chapter" data-level="8.5.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#host-for-substrate"><i class="fa fa-check"></i><b>8.5.2</b> Host for substrate</a></li>
+<li class="chapter" data-level="8.5.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#local-vs.-long-distance-search"><i class="fa fa-check"></i><b>8.5.3</b> Local vs. long distance search</a></li>
+<li class="chapter" data-level="8.5.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations"><i class="fa fa-check"></i><b>8.5.4</b> Simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations-from-qpe-paper"><i class="fa fa-check"></i><b>8.6</b> Simulations from QPE Paper</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-span-and-resolution"><i class="fa fa-check"></i><b>8.6.1</b> Model Span and Resolution</a></li>
+<li class="chapter" data-level="8.6.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-results"><i class="fa fa-check"></i><b>8.6.2</b> Model Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="revisiting-wolffs-wading-birds-wolff.html"><a href="revisiting-wolffs-wading-birds-wolff.html"><i class="fa fa-check"></i><b>9</b> Revisiting Wolff’s Wading Birds {# wolff}</a></li>
+<li class="chapter" data-level="10" data-path="valid.html"><a href="valid.html"><i class="fa fa-check"></i><b>10</b> Validation and Sensitivity Testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="valid.html"><a href="valid.html#criteria-for-model-development"><i class="fa fa-check"></i><b>10.1</b> Criteria for Model Development</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="valid.html"><a href="valid.html#explained-variation-r2"><i class="fa fa-check"></i><b>10.1.1</b> Explained Variation <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="valid.html"><a href="valid.html#attribute-inclusionexclusion-significance-level"><i class="fa fa-check"></i><b>10.1.2</b> Attribute inclusion/exclusion significance level</a></li>
+<li class="chapter" data-level="10.1.3" data-path="valid.html"><a href="valid.html#linear-and-non-linear-equations"><i class="fa fa-check"></i><b>10.1.3</b> Linear and non-linear equations</a></li>
+<li class="chapter" data-level="10.1.4" data-path="valid.html"><a href="valid.html#parsimony"><i class="fa fa-check"></i><b>10.1.4</b> Parsimony</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="valid.html"><a href="valid.html#model-diagnostic-tests"><i class="fa fa-check"></i><b>10.2</b> Model diagnostic tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="code.html"><a href="code.html"><i class="fa fa-check"></i><b>11</b> Reusable, Extensible Simulation Code</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="code.html"><a href="code.html#tabular-data"><i class="fa fa-check"></i><b>11.1</b> Tabular data</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="code.html"><a href="code.html#organism-features"><i class="fa fa-check"></i><b>11.1.1</b> Organism Features</a></li>
+<li class="chapter" data-level="11.1.2" data-path="code.html"><a href="code.html#organism-future-events"><i class="fa fa-check"></i><b>11.1.2</b> Organism Future Events</a></li>
+<li class="chapter" data-level="11.1.3" data-path="code.html"><a href="code.html#interactions-among-organisms"><i class="fa fa-check"></i><b>11.1.3</b> Interactions among Organisms</a></li>
+<li class="chapter" data-level="11.1.4" data-path="code.html"><a href="code.html#organism-profiles"><i class="fa fa-check"></i><b>11.1.4</b> Organism profiles</a></li>
+<li class="chapter" data-level="11.1.5" data-path="code.html"><a href="code.html#species-life-histories"><i class="fa fa-check"></i><b>11.1.5</b> Species life histories</a></li>
+<li class="chapter" data-level="11.1.6" data-path="code.html"><a href="code.html#interaction-processes"><i class="fa fa-check"></i><b>11.1.6</b> Interaction processes</a></li>
+<li class="chapter" data-level="11.1.7" data-path="code.html"><a href="code.html#spatial-movement-on-icosohedron-large-substrate-structures"><i class="fa fa-check"></i><b>11.1.7</b> Spatial movement on icosohedron, large substrate structures</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="code.html"><a href="code.html#event-subroutines"><i class="fa fa-check"></i><b>11.2</b> Event subroutines</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="code.html"><a href="code.html#competing-risk-structure-1"><i class="fa fa-check"></i><b>11.2.1</b> Competing Risk Structure</a></li>
+<li class="chapter" data-level="11.2.2" data-path="code.html"><a href="code.html#birth-death"><i class="fa fa-check"></i><b>11.2.2</b> Birth, death</a></li>
+<li class="chapter" data-level="11.2.3" data-path="code.html"><a href="code.html#life-stages"><i class="fa fa-check"></i><b>11.2.3</b> Life stages</a></li>
+<li class="chapter" data-level="11.2.4" data-path="code.html"><a href="code.html#search-feed"><i class="fa fa-check"></i><b>11.2.4</b> Search, feed</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="code.html"><a href="code.html#bayesian-logic-programming"><i class="fa fa-check"></i><b>11.3</b> Bayesian logic programming</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="code.html"><a href="code.html#combining-bayesian-networks-and-prolog"><i class="fa fa-check"></i><b>11.3.1</b> Combining Bayesian networks and ProLog</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="fini.html"><a href="fini.html"><i class="fa fa-check"></i><b>12</b> Summary and Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Systems Ethology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="prob" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Probabilistic Nature of Individual Behavior<a href="prob.html#prob" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The intricacies of a biological system emerge at the individual
+level. What properties should simulations possess to capture the
+structure and dynamics of a population of individuals? While a
+biological system has a complete state description across all
+individuals at any instant, individuals only have partial knowledge
+and must make probabilistic choices about future behavior. Each
+individual is partially oblivious to the `optimal’ sequence favored by
+the biological system to improve its quality of life.</p>
+<p>Each individual has a biased view of its environment, and operates
+with information that is subjective, incomplete and at times
+erroneous. The system is stochastic or <code>fuzzy' (Zadeh 1973) since future events for an individual are subject to random decisions based on imperfect system knowledge. Each individual has instincts, or strategies, that evolved as species characteristics. In addition, it possesses certain morphological and ethological features based on its unique heredity that may improve species, but not necessarily individual, survival. Some</code>primitive’ entities can have reasonably
+constant instincts during their lifespan. Highly developed individuals
+experience periods of learning that transform their ability to exploit
+the environment.</p>
+<p>Holling (1966) analyzed the functional response of the praying mantis
+(Hierodula crossa, Giglio-Tos.) to a population of houseflies (Musca
+domestica) finding that hunting behavior is intrinsically
+probabilistic. Holling decomposed mantid predation into three basic
+components:</p>
+<ol style="list-style-type: decimal">
+<li><p>Rate of successful search, depending on (a) reactive distance
+of the predator to prey, (b) proportion of prey successfully
+attacked, and movement speed of the (c) predator and (d) prey.</p></li>
+<li><p>Time prey are exposed to predator, depending on activities (a)
+related and (b) not related to prey feeding.</p></li>
+<li><p>Time spent handling each prey, including (a) pursuing and
+subduing, (b) eating, and (c) digesting afterward.</p></li>
+</ol>
+<p>Holling’s analysis suggests that predator-prey interactions are
+sequences of events involving individuals, not densities. They occur
+only under certain conditions that depend on the morphological and
+ethological characteristics of both predator and prey. A predator-prey
+interaction event depends on many conditional probabilities that in
+turn depend upon the states of a particular pair of predator and prey.</p>
+<p>Since an interaction is inherently probabilistic, uniquely dependent
+upon the individuals involved, how can we transform these
+discontinuous, heterogeneous, probabilistic data into piecewise
+continuous predator-prey models? Analytical solutions surely
+fail. Simulations tend to judiciously ignore as many variables as
+possible to reduce dimensionality. This introduces uncertainty by
+sampling the state space, making the system more probabilistic.</p>
+<p>The usefulness of any model depends on its ability to suggest clearer
+understanding of the data collected. Conversely, modeling of a
+biological system is intrinsically dependent on what is measured and
+how individuals are sampled. Sparse sampling `quantizes’ a biological
+system, restricting what facets of an individual are studied, leading
+to incomplete descriptions of the dynamics of each organism. The
+researcher observes certain individuals and assigns them to a sequence
+of quantifiable states. Unobserved individuals have unknown states,
+leading to a probabilistic projection of the whole population onto the
+states of those that are observed. Thus the measurement process chosen
+by the biologist limits the class of models for the structure and
+dynamics of the biological system. Further, the process of measurement
+and understanding of that system evolves over weeks or years of
+investigation.</p>
+<div id="properties-of-an-individual" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Properties of an individual<a href="prob.html#properties-of-an-individual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Since individuals are paramount to our approach, we explore more
+thoroughly what an individual is in this section. An individual is so
+complex that any attempt to simulate that organism and its dynamics is
+extremely difficult. Modeling the dynamics of a population at the
+individual level requires defining properties of an individual at an
+arbitrary operational level. The following twelve properties define an
+individual as a higher level living system. They are by no means
+complete, but they limit the type of modeling effort that would be
+acceptable:</p>
+<ol style="list-style-type: decimal">
+<li>An organism is inexhaustibly complex.</li>
+<li>Its state cannot be completely determined.</li>
+<li>It has no natural state-space representation.</li>
+<li>It is unique relative to all other organisms.</li>
+<li>It changes continuously and irreversibly.</li>
+<li>It is unique relative to its own entire past and future.</li>
+<li>It is highly organized internally.</li>
+<li>It is sharply differentiated from its environment.</li>
+<li>It exchanges mass, energy, and information with its environment.</li>
+<li>Its perception of its environment is incomplete, abstract, and
+specialized.</li>
+<li>It has memory of its past that modifies its present behavior.</li>
+<li>It responds to its environment as a discrete integrated unit.</li>
+</ol>
+<p>Properties 1, 2, 3, and 7 are related. The internal system of an
+individual is operationally indefinable. A particular organism can be
+partially described in terms of its constituent parts, for instance
+its nervous system. The dynamics of neural systems helps unravel the
+mechanism for transmitting information, but may not be sufficient to
+study memory, which further involves the dynamics of RNA. Under normal
+conditions an organism receives stimuli from hundreds of sources,
+processing based on its unique memory and physiological capacity in a
+nonlinear, non-equilibrium and non-decomposable fashion. A `complete’
+understanding of these internal dynamics would involve a hopelessly
+nonlinear system with hierarchical structure.</p>
+<p>Properties 4, 6, 8, 11, and 12 claim that organisms function as
+unique, complete individuals. Each behaves as a unit under a set of
+stimuli able to react uniquely depending upon its present state and
+partial memory of past events. Properties 5 and 9 imply that an
+organism converts mass, energy and information, obeying entropy, but
+is never at equilibrium until it dies. Property 10 says that each
+organism has finite memory, cannot recall all sensed stimuli, and can
+respond to only a few available stimuli.</p>
+</div>
+<div id="interactions-among-individuals-in-community" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Interactions among individuals in community<a href="prob.html#interactions-among-individuals-in-community" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="field-sampling-process" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Field sampling process<a href="prob.html#field-sampling-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="quantization-of-eventsstates" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Quantization of events/states<a href="prob.html#quantization-of-eventsstates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="quantization-of-timespace" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Quantization of time/space<a href="prob.html#quantization-of-timespace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="heisenberg-uncertainty-principle" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Heisenberg uncertainty principle<a href="prob.html#heisenberg-uncertainty-principle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have approached the concept of a `measurement’ from a
+mathematical point of view, and not from the point of view of a field
+biologist. The quality of what is called measurement is similar to the
+concept of a decomposition of a Hilbert space in which the measurement
+process and the observer is in some sense an active contributor to the
+determination of the understanding of the system being studied. We
+are not proposing the existence of some sort of Heisenberg uncertainty
+principle of canonical variables. Rather we suggest that knowledge of
+the structure and dynamics of a particular system is uniquely
+determined by the measurement that a field biologist performs.
+Further the process of measurement and understanding of that system is
+itself a dynamic process. For the field biologist, the usefulness of
+any modeling technique is directly related to its ability to suggest
+clearer understanding of the data collected.</p>
+</div>
+<div id="games-of-skill-and-chance" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Games of Skill and Chance<a href="prob.html#games-of-skill-and-chance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Games imitates life. How do the properties of common games reflect
+aspects of a biological system that might be relevant for simulation
+modelling? In the development of Ewing’s approach certain properties
+of the biological system–when viewed at the level of resolution of
+the individual–became apparent. These properties are examined in
+the next three subsections.</p>
+<div id="backgammon" class="section level3 hasAnchor" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Backgammon<a href="prob.html#backgammon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Backgammon is an extremely old game which has been played for
+centuries. The game has three interesting properties. First, at any
+given time t, there exists a complete description of the state of the
+game. Second, all moves are inherently probabilistic, that is, all
+moves are made by the toss of a pair of dice. Third, given an
+acceptable structure, there exist certain strategies which will
+minimize the chances of `success’. Certain strategies are preferred
+because the randomizing process is repeated a large number of times
+over the acceptable structure. The game itself is a true game of
+chance since at any point in the game, the next step is essentially
+random.</p>
+<p>The biological situation is similar if we resolve a given population
+to the level of the individuals. Ewing et al. (1974) asserted
+that from this level of resolution any individual is characterized by
+twelve operational properties, listed below:</p>
+<p>From these properties, it is apparent that any individual is so
+complex that, at any given instant in time, the behavior of the
+individual is probabilistic relative to any subset of events which
+are sampled. Furthermore, the probabilities at a given instant
+will change as a function of the events which occur to that
+individual. The probabilities themselves have a system of
+probabilistic feedback loops.</p>
+<p>At any one instant, the randomizing process essentially forces a
+quasi-equal probability onto the system; that is - complete chaos.
+However, over a large number of events, the structure inherent in
+the biological system become less opaque. It is this structure
+that favors certain strategies. An individual’s ability to apply
+these strategies to his situation in the system determines his
+ultimate success or failure in the system.</p>
+</div>
+<div id="bridge" class="section level3 hasAnchor" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Bridge<a href="prob.html#bridge" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Bridge is the second game whose properties we wish to examine. Unlike
+backgammon, bridge has a randomizing process which is performed once.
+At the beginning of each hand, a certain participant randomizes
+(shuffles) a deck containing fifty-two cards and the cards are dealt
+to each participant. A complex sequence of bidding occurs in which
+part of the structure of each of the participant’s cards are
+revealed. At some point in the game the bidding stops and an exchange
+of cards takes place. With each exchange, the structure of each of
+the players hand becomes more apparent, and each player attempts to
+exploit his understanding of the particular structure inherent in the
+game. Each player is, in essence, operating with incomplete
+information. Further, it’s his understanding of that information
+which determines his tactics–not the actual information.
+In the analogous biological situation, each individual operates with
+information which is subjective and incomplete. An individual has
+revealed to it, at any given moment in time, only a pat of the
+environment in which it exists. That individual is operating on the
+basis of incomplete and, at times, erroneous information – i.e., the
+information is `fuzzy’ (Zedah, 1973). In a realistic biological
+system, an individual has a biased view of his environment. Through
+the individual’s evolutionary processes, it possesses certain
+instincts which are characteristic of its species and through its
+unique hereditary chain it possesses certain morphological and
+ethological characteristics. In extremely primitive entities the
+initial instincts may be constant for its total lifespan. For more
+highly developed individuals, long periods of learning can take place
+in which the individual’s ability to exploit its environment changes
+as its awareness of the structure of its environment changes, and as
+the actual environment changes.</p>
+<p>As in backgammon, the individual must exploit its view of its local
+environment. The researcher must be aware of the individuals
+incomplete understanding of its environment, but that his own
+subjective understanding of the biological system is also incomplete.
+In some senses the researcher is an observer to the game in which he
+is not allowed access to all the rules nor can he look completely at
+any one player’s hand, yet he must predict the outcome of the game.
+He has, therefore, an intrinsically different understanding of the
+system. His view of the system determines his measurement of that
+system (how does he choose to look at a given participant’s cards).
+The measurement process is intimately connected to the researcher’s
+view of the biological system in question and together they determine
+his predictions. The researcher is again faced with a probabilistic
+view of a given population which is resolved to the level of
+description of the individual. The probabilistic approach is
+necessary to handle the problem of incomplete information.</p>
+</div>
+<div id="chess" class="section level3 hasAnchor" number="4.7.3">
+<h3><span class="header-section-number">4.7.3</span> Chess<a href="prob.html#chess" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Chess is a game of skill played by two players. Chess is, in
+principle, deterministic. There exists a full set of rules with
+which both players are familiar. At any instant, the complete state
+of the game is, in principle, available to both players, and that
+state space is finite.<br />
+Why then, is chess considered a complex game? If one wished to
+examine each possible move for each player for the whole game, i.e.,
+determines each trajectory through the state space for the whole game;
+one is faced with an enormous decision tree. For a complete game
+there is on the order of 10100 to 10200 possible paths through the
+state space. Therefore, even though the game of chess is, in
+principle, deterministic and finite; it is, from a practical or
+operational standpoint, inexhaustively complex. Because of the
+inherent complexity, it is highly unlikely that any direct numerical
+analog of the game is possible. It is also obvious that analytic
+solutions are impossible. By necessity, the game is played
+heuristically. Due to the high dimensionality of chess, any statement
+of how the game progresses, is operationally a probabilistic
+statement.</p>
+<p>Suppose that is possible to define a biological situation – at the
+level of description of the individual – which is finite and
+deterministic. Ewing (Ewing, et al., 1974) has shown that even for
+descriptions with an extremely small number of individuals, the
+possibility of numerical solutions becomes operationally impossible
+rather rapidly. In such situations, there exists the time-honored
+technique of judiciously ignoring as many variables as is possible.
+By ignoring a certain subset of variables, a deterministic system
+becomes a probabilistic system. Because of the problem of high
+dimensionality in population biology, it becomes necessary to
+subsample the biological state space and the description of that
+population is necessarily probabilistic.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="field-biologists-and-the-collection-of-data-field.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="event.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/04-prob.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["ewing_book.pdf", "ewing_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

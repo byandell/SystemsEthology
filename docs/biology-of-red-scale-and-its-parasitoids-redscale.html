@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Biology of Red Scale and its Parasitoids {# redscale} | Systems Ethology</title>
+  <meta name="description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Biology of Red Scale and its Parasitoids {# redscale} | Systems Ethology" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="github-repo" content="byandell/ewing_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Biology of Red Scale and its Parasitoids {# redscale} | Systems Ethology" />
+  
+  <meta name="twitter:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  
+
+<meta name="author" content="Bland Ewing, Brian S Yandell, James F Barbieri, Robert F Luck, Lisa D Forster" />
+
+
+<meta name="date" content="2026-04-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data.html"/>
+<link rel="next" href="revisiting-wolffs-wading-birds-wolff.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative Population Ethology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="qpe.html"><a href="qpe.html"><i class="fa fa-check"></i><b>1</b> Why Quantitative Population Ethology?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="qpe.html"><a href="qpe.html#maleable-tools-for-the-field-biologists"><i class="fa fa-check"></i><b>1.1</b> Maleable Tools for the Field Biologists</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="qpe.html"><a href="qpe.html#tying-simulations-to-field-data"><i class="fa fa-check"></i><b>1.1.1</b> Tying simulations to field data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="qpe.html"><a href="qpe.html#simulating-millions-of-organisms"><i class="fa fa-check"></i><b>1.2</b> Simulating Millions of Organisms</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="qpe.html"><a href="qpe.html#limitations-of-brute-force-computing"><i class="fa fa-check"></i><b>1.2.1</b> Limitations of brute force computing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="qpe.html"><a href="qpe.html#loose-coupling-of-model-cascades"><i class="fa fa-check"></i><b>1.2.2</b> Loose coupling of model cascades</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="qpe.html"><a href="qpe.html#from-individual-behavior-to-evolution"><i class="fa fa-check"></i><b>1.3</b> From Individual Behavior to Evolution</a></li>
+<li class="chapter" data-level="1.4" data-path="qpe.html"><a href="qpe.html#discussion-from-qpe"><i class="fa fa-check"></i><b>1.4</b> Discussion from QPE</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="classical.html"><a href="classical.html"><i class="fa fa-check"></i><b>2</b> Limitations of Classical Models</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="classical.html"><a href="classical.html#mathematical-biology"><i class="fa fa-check"></i><b>2.1</b> Mathematical Biology</a></li>
+<li class="chapter" data-level="2.2" data-path="classical.html"><a href="classical.html#biology-vs.-physics"><i class="fa fa-check"></i><b>2.2</b> Biology vs. Physics</a></li>
+<li class="chapter" data-level="2.3" data-path="classical.html"><a href="classical.html#predator-prey-models"><i class="fa fa-check"></i><b>2.3</b> Predator-Prey Models</a></li>
+<li class="chapter" data-level="2.4" data-path="classical.html"><a href="classical.html#classical-differential-equation-models"><i class="fa fa-check"></i><b>2.4</b> Classical Differential Equation Models</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="classical.html"><a href="classical.html#early-work-the-holling-predation-studies"><i class="fa fa-check"></i><b>2.4.1</b> Early Work: The Holling Predation Studies</a></li>
+<li class="chapter" data-level="2.4.2" data-path="classical.html"><a href="classical.html#lotka-volterra-leslie-matrices"><i class="fa fa-check"></i><b>2.4.2</b> Lotka-Volterra, Leslie matrices</a></li>
+<li class="chapter" data-level="2.4.3" data-path="classical.html"><a href="classical.html#time-and-phase-space"><i class="fa fa-check"></i><b>2.4.3</b> Time and phase space</a></li>
+<li class="chapter" data-level="2.4.4" data-path="classical.html"><a href="classical.html#stable-cycles-and-chaos"><i class="fa fa-check"></i><b>2.4.4</b> Stable cycles and chaos</a></li>
+<li class="chapter" data-level="2.4.5" data-path="classical.html"><a href="classical.html#quadratic-and-linear-equations-in-optimization-research"><i class="fa fa-check"></i><b>2.4.5</b> Quadratic and Linear Equations in Optimization Research</a></li>
+<li class="chapter" data-level="2.4.6" data-path="classical.html"><a href="classical.html#limitations"><i class="fa fa-check"></i><b>2.4.6</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="classical.html"><a href="classical.html#life-tables-and-competing-risks"><i class="fa fa-check"></i><b>2.5</b> Life tables and competing risks</a></li>
+<li class="chapter" data-level="2.6" data-path="classical.html"><a href="classical.html#synchronized-generations"><i class="fa fa-check"></i><b>2.6</b> Synchronized generations</a></li>
+<li class="chapter" data-level="2.7" data-path="classical.html"><a href="classical.html#time-driven-simulation-models"><i class="fa fa-check"></i><b>2.7</b> Time Driven Simulation Models</a></li>
+<li class="chapter" data-level="2.8" data-path="classical.html"><a href="classical.html#population-size-continuous-or-discrete"><i class="fa fa-check"></i><b>2.8</b> Population size: continuous or discrete</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="classical.html"><a href="classical.html#time-almost-always-one-unit"><i class="fa fa-check"></i><b>2.8.1</b> Time almost always one unit</a></li>
+<li class="chapter" data-level="2.8.2" data-path="classical.html"><a href="classical.html#stochastic-dynamic-systems"><i class="fa fa-check"></i><b>2.8.2</b> Stochastic dynamic systems</a></li>
+<li class="chapter" data-level="2.8.3" data-path="classical.html"><a href="classical.html#discrete-time-stochastic-petri-nets"><i class="fa fa-check"></i><b>2.8.3</b> Discrete time stochastic Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="classical.html"><a href="classical.html#event-driven-petri-nets"><i class="fa fa-check"></i><b>2.9</b> Event-driven Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="field-biologists-and-the-collection-of-data-field.html"><a href="field-biologists-and-the-collection-of-data-field.html"><i class="fa fa-check"></i><b>3</b> Field Biologists and the Collection of Data {#field}}</a></li>
+<li class="chapter" data-level="4" data-path="prob.html"><a href="prob.html"><i class="fa fa-check"></i><b>4</b> Probabilistic Nature of Individual Behavior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prob.html"><a href="prob.html#properties-of-an-individual"><i class="fa fa-check"></i><b>4.1</b> Properties of an individual</a></li>
+<li class="chapter" data-level="4.2" data-path="prob.html"><a href="prob.html#interactions-among-individuals-in-community"><i class="fa fa-check"></i><b>4.2</b> Interactions among individuals in community</a></li>
+<li class="chapter" data-level="4.3" data-path="prob.html"><a href="prob.html#field-sampling-process"><i class="fa fa-check"></i><b>4.3</b> Field sampling process</a></li>
+<li class="chapter" data-level="4.4" data-path="prob.html"><a href="prob.html#quantization-of-eventsstates"><i class="fa fa-check"></i><b>4.4</b> Quantization of events/states</a></li>
+<li class="chapter" data-level="4.5" data-path="prob.html"><a href="prob.html#quantization-of-timespace"><i class="fa fa-check"></i><b>4.5</b> Quantization of time/space</a></li>
+<li class="chapter" data-level="4.6" data-path="prob.html"><a href="prob.html#heisenberg-uncertainty-principle"><i class="fa fa-check"></i><b>4.6</b> Heisenberg uncertainty principle</a></li>
+<li class="chapter" data-level="4.7" data-path="prob.html"><a href="prob.html#games-of-skill-and-chance"><i class="fa fa-check"></i><b>4.7</b> Games of Skill and Chance</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="prob.html"><a href="prob.html#backgammon"><i class="fa fa-check"></i><b>4.7.1</b> Backgammon</a></li>
+<li class="chapter" data-level="4.7.2" data-path="prob.html"><a href="prob.html#bridge"><i class="fa fa-check"></i><b>4.7.2</b> Bridge</a></li>
+<li class="chapter" data-level="4.7.3" data-path="prob.html"><a href="prob.html#chess"><i class="fa fa-check"></i><b>4.7.3</b> Chess</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="event.html"><a href="event.html"><i class="fa fa-check"></i><b>5</b> Event-Driven Competing Risks Structure</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="event.html"><a href="event.html#event-driven-considerations-for-living-systems"><i class="fa fa-check"></i><b>5.1</b> Event-Driven Considerations for Living Systems</a></li>
+<li class="chapter" data-level="5.2" data-path="event.html"><a href="event.html#minimization-structure-within-across-individuals"><i class="fa fa-check"></i><b>5.2</b> Minimization structure within, across individuals</a></li>
+<li class="chapter" data-level="5.3" data-path="event.html"><a href="event.html#modelling-event-to-event"><i class="fa fa-check"></i><b>5.3</b> Modelling event to event</a></li>
+<li class="chapter" data-level="5.4" data-path="event.html"><a href="event.html#non-homogeneous-poisson-process-rebuilt-at-every-event"><i class="fa fa-check"></i><b>5.4</b> Non-homogeneous Poisson process rebuilt at every event</a></li>
+<li class="chapter" data-level="5.5" data-path="event.html"><a href="event.html#event-span-resolution"><i class="fa fa-check"></i><b>5.5</b> Event, span, resolution</a></li>
+<li class="chapter" data-level="5.6" data-path="event.html"><a href="event.html#futureimmediatepending-events"><i class="fa fa-check"></i><b>5.6</b> Future/immediate/pending events</a></li>
+<li class="chapter" data-level="5.7" data-path="event.html"><a href="event.html#competing-risks-for-life-events"><i class="fa fa-check"></i><b>5.7</b> Competing Risks for Life Events</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="event.html"><a href="event.html#competing-risk-structure"><i class="fa fa-check"></i><b>5.7.1</b> Competing risk structure</a></li>
+<li class="chapter" data-level="5.7.2" data-path="event.html"><a href="event.html#time-depends-on-events"><i class="fa fa-check"></i><b>5.7.2</b> Time depends on events</a></li>
+<li class="chapter" data-level="5.7.3" data-path="event.html"><a href="event.html#event-structure-for-individual"><i class="fa fa-check"></i><b>5.7.3</b> Event structure for individual</a></li>
+<li class="chapter" data-level="5.7.4" data-path="event.html"><a href="event.html#five-dimensional-parameterization"><i class="fa fa-check"></i><b>5.7.4</b> Five-dimensional parameterization</a></li>
+<li class="chapter" data-level="5.7.5" data-path="event.html"><a href="event.html#handling-immediate-events"><i class="fa fa-check"></i><b>5.7.5</b> Handling immediate events</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sim.html"><a href="sim.html"><i class="fa fa-check"></i><b>6</b> Simulation Mechanics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sim.html"><a href="sim.html#choice-of-modeling-system"><i class="fa fa-check"></i><b>6.1</b> Choice of Modeling System</a></li>
+<li class="chapter" data-level="6.2" data-path="sim.html"><a href="sim.html#cubic-splines"><i class="fa fa-check"></i><b>6.2</b> Cubic splines</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="sim.html"><a href="sim.html#time-to-event-based-on-data-or-intuition"><i class="fa fa-check"></i><b>6.2.1</b> Time to event based on data or intuition</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sim.html"><a href="sim.html#translating-time-to-degree-days-and-back"><i class="fa fa-check"></i><b>6.2.2</b> Translating time to degree-days and back</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sim.html"><a href="sim.html#spatial-components"><i class="fa fa-check"></i><b>6.3</b> Spatial components</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="sim.html"><a href="sim.html#tridiagonal-coordinate-system"><i class="fa fa-check"></i><b>6.3.1</b> Tridiagonal coordinate system</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sim.html"><a href="sim.html#sierpinski-gasket"><i class="fa fa-check"></i><b>6.3.2</b> Sierpinski gasket</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sim.html"><a href="sim.html#icosohedrontriangular-cylinder-for-objects"><i class="fa fa-check"></i><b>6.3.3</b> Icosohedron/triangular cylinder for objects</a></li>
+<li class="chapter" data-level="6.3.4" data-path="sim.html"><a href="sim.html#smooth-integration-between-triangles"><i class="fa fa-check"></i><b>6.3.4</b> Smooth integration between triangles</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="sim.html"><a href="sim.html#priority-queues"><i class="fa fa-check"></i><b>6.4</b> Priority queues</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="sim.html"><a href="sim.html#partial-ordering-of-individuals-based-on-next-future-event"><i class="fa fa-check"></i><b>6.4.1</b> Partial ordering of individuals based on next future event</a></li>
+<li class="chapter" data-level="6.4.2" data-path="sim.html"><a href="sim.html#dynamic-storage-allocation"><i class="fa fa-check"></i><b>6.4.2</b> Dynamic storage allocation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sim.html"><a href="sim.html#pseudo-randomization"><i class="fa fa-check"></i><b>6.5</b> Pseudo-Randomization</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="sim.html"><a href="sim.html#generalized-feedback-shift-registers"><i class="fa fa-check"></i><b>6.5.1</b> Generalized feedback shift registers</a></li>
+<li class="chapter" data-level="6.5.2" data-path="sim.html"><a href="sim.html#exponential-random-values"><i class="fa fa-check"></i><b>6.5.2</b> Exponential random values</a></li>
+<li class="chapter" data-level="6.5.3" data-path="sim.html"><a href="sim.html#sierpinski-gasket-order-direction"><i class="fa fa-check"></i><b>6.5.3</b> Sierpinski gasket: order, direction</a></li>
+<li class="chapter" data-level="6.5.4" data-path="sim.html"><a href="sim.html#fractal-nature-of-spatial-search-algorithms"><i class="fa fa-check"></i><b>6.5.4</b> Fractal nature of spatial search algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="sim.html"><a href="sim.html#curse-of-dimensionality"><i class="fa fa-check"></i><b>6.6</b> Curse of Dimensionality</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="sim.html"><a href="sim.html#calculations-linear-in-number-of-individuals-ave.-number-of-life-events"><i class="fa fa-check"></i><b>6.6.1</b> Calculations linear in number of individuals * ave. number of life events</a></li>
+<li class="chapter" data-level="6.6.2" data-path="sim.html"><a href="sim.html#ramping-up-from-hundreds-to-millions"><i class="fa fa-check"></i><b>6.6.2</b> Ramping up from hundreds to millions</a></li>
+<li class="chapter" data-level="6.6.3" data-path="sim.html"><a href="sim.html#quasi-parallel-computation"><i class="fa fa-check"></i><b>6.6.3</b> Quasi-parallel computation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="sim.html"><a href="sim.html#efficient-use-of-supercomputer-clusters"><i class="fa fa-check"></i><b>6.6.4</b> Efficient use of supercomputer clusters</a></li>
+<li class="chapter" data-level="6.6.5" data-path="sim.html"><a href="sim.html#loosely-connected-communities"><i class="fa fa-check"></i><b>6.6.5</b> Loosely connected communities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="sim.html"><a href="sim.html#future-considerations"><i class="fa fa-check"></i><b>6.7</b> Future Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Data Integration</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#sample-splitter-to-count-insects"><i class="fa fa-check"></i><b>7.1</b> Sample splitter to count insects</a></li>
+<li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#organization-of-data-in-relational-database"><i class="fa fa-check"></i><b>7.2</b> Organization of data in relational database</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data.html"><a href="data.html#access-postgresql"><i class="fa fa-check"></i><b>7.2.1</b> Access, PostgresQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data.html"><a href="data.html#beyond-h5-used-for-satellite-images-microarray-data"><i class="fa fa-check"></i><b>7.2.2</b> Beyond: H5(?) used for satellite images, microarray data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#tying-data-to-events"><i class="fa fa-check"></i><b>7.3</b> Tying data to events</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html"><i class="fa fa-check"></i><b>8</b> Biology of Red Scale and its Parasitoids {# redscale}</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#detailed-life-histories"><i class="fa fa-check"></i><b>8.1</b> Detailed life histories</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#red-scale-life-history"><i class="fa fa-check"></i><b>8.1.1</b> Red Scale Life History</a></li>
+<li class="chapter" data-level="8.1.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#aphytis-life-history"><i class="fa fa-check"></i><b>8.1.2</b> Aphytis Life History</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#interaction-events-endo--ecto--hyper-parasitism"><i class="fa fa-check"></i><b>8.2</b> Interaction events: endo-, ecto-, hyper-parasitism</a></li>
+<li class="chapter" data-level="8.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#diurnal-and-degree-day-effects-seasonal-effects"><i class="fa fa-check"></i><b>8.3</b> Diurnal and degree-day effects; seasonal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#position-in-tree"><i class="fa fa-check"></i><b>8.4</b> Position in tree</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#orangebranchleaf"><i class="fa fa-check"></i><b>8.4.1</b> Orange/branch/leaf</a></li>
+<li class="chapter" data-level="8.4.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#exteriormain-trunk"><i class="fa fa-check"></i><b>8.4.2</b> Exterior/main trunk</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#search-algorithms"><i class="fa fa-check"></i><b>8.5</b> Search algorithms</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#parasite-for-host"><i class="fa fa-check"></i><b>8.5.1</b> Parasite for host</a></li>
+<li class="chapter" data-level="8.5.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#host-for-substrate"><i class="fa fa-check"></i><b>8.5.2</b> Host for substrate</a></li>
+<li class="chapter" data-level="8.5.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#local-vs.-long-distance-search"><i class="fa fa-check"></i><b>8.5.3</b> Local vs. long distance search</a></li>
+<li class="chapter" data-level="8.5.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations"><i class="fa fa-check"></i><b>8.5.4</b> Simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations-from-qpe-paper"><i class="fa fa-check"></i><b>8.6</b> Simulations from QPE Paper</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-span-and-resolution"><i class="fa fa-check"></i><b>8.6.1</b> Model Span and Resolution</a></li>
+<li class="chapter" data-level="8.6.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-results"><i class="fa fa-check"></i><b>8.6.2</b> Model Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="revisiting-wolffs-wading-birds-wolff.html"><a href="revisiting-wolffs-wading-birds-wolff.html"><i class="fa fa-check"></i><b>9</b> Revisiting Wolff’s Wading Birds {# wolff}</a></li>
+<li class="chapter" data-level="10" data-path="valid.html"><a href="valid.html"><i class="fa fa-check"></i><b>10</b> Validation and Sensitivity Testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="valid.html"><a href="valid.html#criteria-for-model-development"><i class="fa fa-check"></i><b>10.1</b> Criteria for Model Development</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="valid.html"><a href="valid.html#explained-variation-r2"><i class="fa fa-check"></i><b>10.1.1</b> Explained Variation <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="valid.html"><a href="valid.html#attribute-inclusionexclusion-significance-level"><i class="fa fa-check"></i><b>10.1.2</b> Attribute inclusion/exclusion significance level</a></li>
+<li class="chapter" data-level="10.1.3" data-path="valid.html"><a href="valid.html#linear-and-non-linear-equations"><i class="fa fa-check"></i><b>10.1.3</b> Linear and non-linear equations</a></li>
+<li class="chapter" data-level="10.1.4" data-path="valid.html"><a href="valid.html#parsimony"><i class="fa fa-check"></i><b>10.1.4</b> Parsimony</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="valid.html"><a href="valid.html#model-diagnostic-tests"><i class="fa fa-check"></i><b>10.2</b> Model diagnostic tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="code.html"><a href="code.html"><i class="fa fa-check"></i><b>11</b> Reusable, Extensible Simulation Code</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="code.html"><a href="code.html#tabular-data"><i class="fa fa-check"></i><b>11.1</b> Tabular data</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="code.html"><a href="code.html#organism-features"><i class="fa fa-check"></i><b>11.1.1</b> Organism Features</a></li>
+<li class="chapter" data-level="11.1.2" data-path="code.html"><a href="code.html#organism-future-events"><i class="fa fa-check"></i><b>11.1.2</b> Organism Future Events</a></li>
+<li class="chapter" data-level="11.1.3" data-path="code.html"><a href="code.html#interactions-among-organisms"><i class="fa fa-check"></i><b>11.1.3</b> Interactions among Organisms</a></li>
+<li class="chapter" data-level="11.1.4" data-path="code.html"><a href="code.html#organism-profiles"><i class="fa fa-check"></i><b>11.1.4</b> Organism profiles</a></li>
+<li class="chapter" data-level="11.1.5" data-path="code.html"><a href="code.html#species-life-histories"><i class="fa fa-check"></i><b>11.1.5</b> Species life histories</a></li>
+<li class="chapter" data-level="11.1.6" data-path="code.html"><a href="code.html#interaction-processes"><i class="fa fa-check"></i><b>11.1.6</b> Interaction processes</a></li>
+<li class="chapter" data-level="11.1.7" data-path="code.html"><a href="code.html#spatial-movement-on-icosohedron-large-substrate-structures"><i class="fa fa-check"></i><b>11.1.7</b> Spatial movement on icosohedron, large substrate structures</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="code.html"><a href="code.html#event-subroutines"><i class="fa fa-check"></i><b>11.2</b> Event subroutines</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="code.html"><a href="code.html#competing-risk-structure-1"><i class="fa fa-check"></i><b>11.2.1</b> Competing Risk Structure</a></li>
+<li class="chapter" data-level="11.2.2" data-path="code.html"><a href="code.html#birth-death"><i class="fa fa-check"></i><b>11.2.2</b> Birth, death</a></li>
+<li class="chapter" data-level="11.2.3" data-path="code.html"><a href="code.html#life-stages"><i class="fa fa-check"></i><b>11.2.3</b> Life stages</a></li>
+<li class="chapter" data-level="11.2.4" data-path="code.html"><a href="code.html#search-feed"><i class="fa fa-check"></i><b>11.2.4</b> Search, feed</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="code.html"><a href="code.html#bayesian-logic-programming"><i class="fa fa-check"></i><b>11.3</b> Bayesian logic programming</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="code.html"><a href="code.html#combining-bayesian-networks-and-prolog"><i class="fa fa-check"></i><b>11.3.1</b> Combining Bayesian networks and ProLog</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="fini.html"><a href="fini.html"><i class="fa fa-check"></i><b>12</b> Summary and Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Systems Ethology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="biology-of-red-scale-and-its-parasitoids-redscale" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Biology of Red Scale and its Parasitoids {# redscale}<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#biology-of-red-scale-and-its-parasitoids-redscale" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In California, red scale, Aonidiella aurantii (Maskell) (Diaspididae:
+Homoptera) is a major insect pest of citrus, especially in
+California’s San Joaquin Valley where most of the State’s citrus in
+now grown. At moderate densities, the scale infests the fruit, while
+at higher densities they cause leaf and twig death, which can reduce
+fruit production. Dense scale populations can kill branches or
+portions of the tree with the subsequent loss of all or part of the
+crop. California’s citrus is marketed as fresh fruit. Fruit with scale
+are downgraded or culled and most culled fruit are juiced, which does
+not cover production and processing costs. Thus, marketing conditions
+make cosmetic damage economic.</p>
+<p>Growers in the San Joaquin Valley traditionally suppressed scale
+infestations with broad-spectrum insecticides. Recently red scale has
+evolved resistance to these pesticides, making them ineffective
+(Grafton-Cardwell 1994). An alternative suppression tactic employs the
+release of a small wasp, Aphytis melinus DeBach (Aphelinidae:
+Hymenoptera). Aphytis parasitizes specific stages of the scale insect
+to produce its offspring, killing the scale as a consequence. When
+sufficient scales are parasitized, the scale population is suppressed
+at densities below those of economic concern. Release of this wasp in
+the absence of broad-spectrum insecticides can suppress the scale at a
+cost equal to or less than that achieved with the traditional
+insecticide program. Moreover, the quality of the fruit harvested
+under such a program is equal to or better than that harvested under
+the traditional program. (Haney et al. 1992; Luck et al. 1997).</p>
+<div id="detailed-life-histories" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Detailed life histories<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#detailed-life-histories" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="red-scale-life-history" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Red Scale Life History<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#red-scale-life-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Red scale’s life cycle begins with the crawler stage, a brief mobile
+stage that allows the young scale to find a suitable location on a
+branch, leaf or fruit on which to “settle”. It then inserts its
+mouthparts into the substrate and transforms into a sedentary feeding
+stage. Once settled, a female scale remains immobile for the rest of
+her life. In contrast, the male once settled remains immobile until
+its adult stage when it transforms into a winged adult and seeks a
+virgin female with which to mate. Both the male and female grows by
+molting periodically, alternating between a feeding instar and a
+non-feeding or molting stage. During the molting stage the scale sheds
+its exoskeleton and increases its size so that it can grow when it
+initiates feeding during the next instar. A female red scale has three
+feeding stages (instars) with two intervening molts. At the end of the
+third instar, it mates and transforms into a gravid female, maturing
+its eggs, and subsequently produces crawlers. The eggs develop within
+the female. Immature males have two feeding instars separated by a
+molt stage. Following the second molt the male transforms into a
+prepupa followed by a pupa, finally emerging as a winged adult. The
+winged adult locates a virgin female with whom to mate via a sex
+pheromone. This is illustrated in Figure 1.</p>
+<p>&lt;&lt;Figure 1 about here&gt;&gt;</p>
+<p>Since red scale’s development is temperature dependent, the average
+time it takes the scale to complete its development during an instar
+or molt is represented in degree-days (DDo), which are approximately
+the cumulative degrees (?C) above 11?C (Yu and Luck 1988). It takes
+both female and male scales about 330 DDo to reach the end of the
+second instar. Males remain prepupae for an additional 30 DDo before
+molting to a pupa, and, after 20 DDo as a pupa, emerge as a winged
+adult. In contrast to males, second instar females, on the other hand,
+molt, which last approximately 50 DDo after which they reinsert its
+rostrella and feed as third instars. Red scale is subject to
+parasitism during the development process, until it becomes a mature
+adult. A mated female becomes attached to her scale cover and begins
+to mature her eggs. In approximately 90 DDo the mature female begins
+to produce crawlers. The cycle for a female from crawler to crawler
+producing female takes approximately 650 DDo.</p>
+</div>
+<div id="aphytis-life-history" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Aphytis Life History<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#aphytis-life-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Aphytis melinus is a small wasp that lays its eggs externally on the
+body of red scale (= host) but beneath the scale cover (Forster et
+al. 1995). It paralyzes the scale before it lays its egg. Normally,
+Aphytis lays its egg on a second or a third instar female or on a
+second instar male scale. Aphytis prefers instar stages to molt stages
+of red scale. During the instar stage the scale cover is free of the
+body and Aphytis can lay eggs on either or both the dorsal and ventral
+surfaces of the scale (Abdelrahman 1974; Luck et al. 1982). During the
+molt and mature female stage the cover is rigidly fused to a hardened
+body. The wasp larva hatching from the egg feeds on the paralyzed
+scale, consuming the contents of the scale, which kills it. This is
+referred to as parasitization. The food available to the developing
+Aphytis is determined by the size of the scale body at the time the
+scale is paralyzed. Aphytis passes through four immature stages during
+its development: egg, several larval stages, prepupa, and
+pupa. Generally, Aphytis allocates a male offspring on second instar
+scales and on male and female scales. About 20% of the male scales
+are allocated a female Aphytis. About 70% of the third instar female
+scales are allocated a female Aphytis offspring, about 25% are
+allocated a male Aphytis offspring, and about 5% are allocated two
+Aphytis off spring (usually a male and a female) (Luck et al. 1982;
+Luck and Podoler 1985). The two eggs are laid during the same host
+visit and represent a case of gregariousness (Luck et al 1982).</p>
+<p>Once having allocated an offspring to a host scale, the Aphytis egg or
+larva is vulnerable to usurpation of the host by a second female
+Aphytis encountering the host. A previously laid Aphytis egg or the
+first instar larva arising from it may be killed when a second female
+encounters and oviposits on the previously parasitized host (Forster
+and Luck pers obs). The second female distinguishes the scale as
+previously parasitized and, while walking on the scale cover or
+probing the scale, detects chemical cues that were left by an Aphytis
+that previously oviposited on the scale (van Lenteren and DeBach
+1981). It punctures the previously laid egg and then lays its egg on
+the host, usurping the scale as a resource for its offspring (=
+super-parasitism) (Forster and Luck pers obs). This usurpation
+increases in frequency as the ratio of unparasitized to parasitized
+scales decreases. This form of intraspecific competition can occur
+more than once on a host but, with each usurpation, the survival of
+the wasp larva arising from each newly laid egg decreases.</p>
+<p>&lt;&lt;Figure 2 about here&gt;&gt;</p>
+<p>Aphytis melinus development is also temperature dependent. At 26.70C”,
+in a parasitized or super-parasitized host, a wasp egg hatches after
+about two days. The resulting larva feeds for approximately five days
+before becoming a prepupa for one day. It pupates for four to five
+days before chewing a hole through the scale cover and emerging as an
+adult Aphytis. Thus, the entire process from egg to adult takes twelve
+to thirteen days. Aphytis prefers instar stages to molt stages of red
+scale. During the instar stage the scale cover is free from the
+body. The development of Aphytis is illustrated in Figure 2, while
+parasitism is shown in Figure 3.</p>
+<p>&lt;&lt;Figure 3 about here&gt;&gt;</p>
+<p>Female Aphytis usually mature their first batch of eggs, approximately
+12% of its lifetime egg supply, within 24 hours of emergence using
+resources from their larval stage. They produce eggs during their
+entire adult lifetime, relying on periodic feeding on body fluids of
+small, immature hosts for sustenance (Opp and Luck,1986; Heimpel and
+Rosenheim 1998; Collier 1995; Luck and Nunney 1999). Adult Aphytis
+host-feed by probing the scale body more extensively than when they
+oviposit, feeding on the body fluids that ooze from the wound. Aphytis
+feed on small hosts (scales) while searching for larger scales to
+serve as suitable hosts on which to lay eggs. Host-feeding kills a
+substantial percentage of California red scale beyond those killed
+through parasitism. Within 12 to 18 hours of host-feeding, the female
+develops approximately 1.3 eggs if it has not recently oviposited, or
+about 2.7 eggs if it has. Host feeding appears to provide resource for
+both metabolic maintenance and egg production. Collier (1995) showed
+that Aphytis that do not have access to hosts for either oviposition
+or host feeding will re-absorb about one egg per day. However, egg
+re-absorption will not supply the metabolic needs of the wasp in the
+absence of honey or other carbohydrates.</p>
+<p>Aphytis, as with most parasitoids, controls the sex of its offspring
+by optional fertilization of eggs: males normally arise from
+unfertilized eggs while females arise from fertilized eggs (Yu and
+Luck 1988; Godfray 1994). Larger scales are allocated female eggs as
+large daughters are more reproductively successful on average than
+smaller daughters. Thus scales growing on fruit are more likely to be
+parasitized due to their larger size (Luck and Podoler 1985; Hare and
+Luck 1991).</p>
+</div>
+</div>
+<div id="interaction-events-endo--ecto--hyper-parasitism" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Interaction events: endo-, ecto-, hyper-parasitism<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#interaction-events-endo--ecto--hyper-parasitism" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="diurnal-and-degree-day-effects-seasonal-effects" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Diurnal and degree-day effects; seasonal effects<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#diurnal-and-degree-day-effects-seasonal-effects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="position-in-tree" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Position in tree<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#position-in-tree" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="orangebranchleaf" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Orange/branch/leaf<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#orangebranchleaf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="exteriormain-trunk" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Exterior/main trunk<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#exteriormain-trunk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="search-algorithms" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Search algorithms<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#search-algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="parasite-for-host" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Parasite for host<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#parasite-for-host" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="host-for-substrate" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Host for substrate<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#host-for-substrate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="local-vs.-long-distance-search" class="section level3 hasAnchor" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> Local vs. long distance search<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#local-vs.-long-distance-search" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="simulations" class="section level3 hasAnchor" number="8.5.4">
+<h3><span class="header-section-number">8.5.4</span> Simulations<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A simulation system has been developed using the event-driven
+competing risk structure outlined above. The initial implementation
+focuses on the California red scale-Aphytis system, although the
+software module has no code specific to this system except details of
+event handling. Our parameterization can dramatically reduce disk
+storage needs and run time for simulations. Calculations involve no
+integration, reducing to an exponential random variate, a pair of
+linear transformations and an evaluation of M-1. The structure of an
+individual is divided into the “static” properties, such as physical
+attributes and relationships with other individuals, and the “dynamic”
+event structure, influenced by the competing risks and other
+individuals in the community.</p>
+<p>Since red scale is temperature dependent (approximated by degree-days,
+the integral of degrees above 11?C) while Aphytis is diurnal (active
+from about 9am to 4pm), we allow the two species to operate on
+different biological clocks. Mean value functions for future events
+are by default linear in the species-specific biological clock
+(degree-day or diurnal), but can be tuned using a graphical
+interface. The software is written in the R language, which is
+graphical, extensible, and in the public domain (Venables and Ripley
+2000; see <a href="http://www.r-project.org" class="uri">http://www.r-project.org</a>). We compute M and M-1 and the
+hour/degree-day translation using forward and backward cubic splines
+via library(splines) in R, and efficiently generate standard
+exponential pseudo-random numbers using the R implementation of
+algorithms by Ahrens and Dieter (1974, 1988). Details of the
+simulation and access to public domain software can be found at
+<a href="http://www.stat.wisc.edu/~yandell/ewing" class="uri">http://www.stat.wisc.edu/~yandell/ewing</a>.</p>
+<p>The simulation uses life history information from Forster et
+al. (1995) as summarize earlier in this paper. A temperature range of
+15?C to 30?C is used to represent springtime conditions in the
+interior regions of California or the San Joaquin Valley. The cool
+evenings slow development of red scale. We simulate the red
+scale-Aphytis system with varying number of individuals of each
+species. Here we present a limited set of simulations to demonstrate
+proof of concept. The orange tree is simulated as one four-sided
+orange, one two-sided leaf, and a twig connecting them. Pragmatic
+choices were made about movement among these locations for red scale
+crawlers and Aphytis adults. Initial simulations are run for up to
+10,000 events, or several generations of each species.</p>
+<p>An isolated population of red scale demonstrates, as expected, an
+exponential increase in total population over generation (not
+shown). Since the underlying orange resource is not restricted, we see
+uncontrolled growth. However, both gravid females and crawlers tend to
+show inherently discontinuous dynamics, with periods of growth and
+decline.</p>
+<p>&lt;&lt;Figure 7 about here&gt;&gt;</p>
+<p>A simulation with 200 red scale and 200 Aphytis, weighted initially
+toward immature individuals, shows the characteristic lag in response
+to parasitization (Figure 7). The number of red scale initially rises,
+and then is dramatically reduced by the emerging adult Aphytis. Both
+decline for some time, but the red scale shows evidence of recovery
+with an increased number of crawlers, and subsequent increase in
+instars that can serve as Aphytis hosts. The decline in Aphytis
+appears to be arrested late in the simulation, but there are only a
+few individuals left. The frequent vertical spikes in number of
+Aphytis young represent male offspring that are born and immediately
+removed from the simulation. This crash in parasite population may be
+due to the artificial isolation of this simulation. In a larger
+simulation, there could be immigration of new adult Aphytis from
+neighboring orange fruits as well as the emigration of males.</p>
+<p>&lt;&lt;Figure 8 about here&gt;&gt;</p>
+<p>The next example differs in having initial populations of 300 red
+scale and 50 Aphytis, and a slower depletion of adult Aphytis egg
+resources. Figure 8 shows that Aphytis can maintain its population for
+a few generations. However as the number of adult Aphytis stabilizes
+at around 35, they begin to seriously reduce the host population. The
+Aphytis population drops as well, as the adults fail to find red scale
+that are mature enough to support female Aphytis eggs. Eventually the
+remaining Aphtis adults would perish for lack of food.</p>
+</div>
+</div>
+<div id="simulations-from-qpe-paper" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Simulations from QPE Paper<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations-from-qpe-paper" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A simulation was developed (see www.stat.wisc.edu/~yandell/ewing) to
+implements our event-driven quantitative population ethology structure
+using the R language (www.r-project.org). The initial implementation
+focuses on the red scale/Aphytis/Encarsia dynamics, although software
+modules are not code specific to this system except for some details
+of event handling. In the next few paragraphs we discuss the input
+requirements for the simulation and then we examine some of the
+properties of an event-driven simulation.</p>
+<p>Information concerning organism life stages and their
+inter-relationships are extracted from field data and stored as
+ordinary tables. These encode system features, schedules for future
+events, and information concerning interactions among organisms. The
+simulation initializes an event structure and partially orders future
+events by species in priority queues (Knuth 19xx) such that the next
+future event has minimal time. The simulation then processes the next
+future event, updating the priority queues by rescheduling an new
+future event for that individual. In addition, future events for
+other individuals may be rescheduled (e.g. due to interaction) or
+de-queued (e.g. due to death).</p>
+<div id="model-span-and-resolution" class="section level3 hasAnchor" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Model Span and Resolution<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-span-and-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Luck et al. (19xx) showed that relevant organisms develop from an egg
+to adult stage in roughly 2-4 weeks (red scale 24-25 days, Aphytis
+13-14 days, Encarsia 19-28 days). Oranges mature in about 8 months,
+roughly 10 or more generations for each species. Thus our simulation
+span is 240 days or 3,500 degree-days (DD, cumulative degrees
+cumulative degrees above 11?C). Resolution for the simulation is more
+difficult to determine. Yu and Luck (1988) recorded red scale life
+histories to 1-3 DD precision, while Aphytis and Encarsia data are
+recorded to 1 day precision. However, multiple events of feeding and
+ovipositing may occur during a day for adults. For simplicity, we
+consider the resolution to be approximately 1 DD or 1 hour, depending
+on species. Thus a simulation with 500 individuals at a time, roughly
+20 events per individual, and 10 generations, will process
+approximately 100,000 events.</p>
+<p>Orange fruit are mature for about 8 months. Luck (see Yu and Luck
+1988 and references in Ewing et al. 2001) suggests that the time in
+days from egg to gravid adult for the insect species involved are
+roughly 2-4 weeks (red scale 24-25 days; Aphytis 13-14 days; Encarsia
+19-28 days). Thus, 8 months corresponds to 10 or more generations for
+each species. This gives us our span of roughly 240 days or 6400
+degree-days (DD), using 1 day = approximately 26.7 DD on average.</p>
+<p>Resolution is more difficult to determine. Luck (cf. Yu and Luck
+1988) often recorded red scale life histories to the precision of 1-3
+DD, with a recognition of inherent variability. Information on
+Aphytis and Encarsia is often recorded to the precision of 1 day.
+However, multiple events of feeding and ovipositing probably occur on
+any given day for adults. For simplicity, we consider the resolutions
+of approximately 1 DD and 1 hour. These are roughly equivalent on
+average.</p>
+<p>Given a particular span and resolution, what are the implications for
+the size of the simulation? Consider roughly 500 individuals at any
+one time, with on average 20 events per individual. We are running 10
+generations, which makes 100,000 events. Version 3 of the software
+can handle about 3000 events per hour on a Pentium II 150Mhz system.
+Thus one simulation could be completed in a day or two. There are
+some issues about space management that need to be redesigned to make
+this happen, however, but they are solvable.</p>
+<p>Suppose one were to use classical modeling techniques, running each
+individual a DD at a time. Assuming there are 500 individuals, there
+would be 3,200,000 steps (500 individuals times 6400 DD), or if you
+consider cycling through say 10 types of events per individual,
+32,000,000 operations. This is a considerably more costly and
+time-consuming operation.</p>
+<p>Notice also that we do not explicitly need to set things up rounded to
+the smallest resolution. In fact, it can be useful to have a smaller
+precision to resolve ties. Order is resolved because events are
+schedule asynchronously. The important thing is to have a resolution
+that is relevant to the events under study, and vice versa. Note
+further that the choice of future events implicitly determines the
+resolution; coarser events correspond to coarser time resolution.</p>
+</div>
+<div id="model-results" class="section level3 hasAnchor" number="8.6.2">
+<h3><span class="header-section-number">8.6.2</span> Model Results<a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We ran simulations with a small number of events to demonstrate the
+apparent discreteness implicit in the event-driven modeling
+paradigm. Changes in spatial and temporal descriptions of red scale
+and Aphytis populations involve discrete, discontinuous changes.</p>
+<p>[New simulations here.]</p>
+<p>One reason that A. aurantii/A. melinus exhibits this type of dynamics
+may be attributed to the fact that A. melinus and A. aurantii operate
+using different constraints. The development of A. aurantii is
+essentially a temperature dependent process, whereas parasitism by
+A. melinus is a time dependent phenomenon. Note that A. melinus
+ability to adapt to changes in the structure and dynamics ultimately
+determines its ability to survive. One of the techniques used by
+A. melinus is to control the sex ratios of its offspring (Luck and
+Nunney 1999).</p>
+<p>Is this model capable of obtaining results one would expect under
+field conditions? The answer to that question is dependent on the
+fidelity of the simulation. If, for example, A. melinus uses a search
+algorithm based on possible pheremone queues and the simulation uses
+an ad-hoc search algorithm, or alternatively the migration pattern of
+A. aurantii does not account for mortality rates due to environmental
+factors, then the probability that the simulation will be realistic
+must be suspect. Perhaps this is the true value of this simulation
+philosophy. The relationship to what the researcher perceives of the
+system he or she is studying is directly related to the results the
+model produces. The model now becomes primarily a tool for rapidly
+testing various scenarios, not for discerning the global properties of
+a biological model. Implicit in this technique is the understanding of
+the role of the field biologist.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="revisiting-wolffs-wading-birds-wolff.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/08-redscale.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["ewing_book.pdf", "ewing_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

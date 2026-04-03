@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Revisiting Wolff’s Wading Birds {# wolff} | Systems Ethology</title>
+  <meta name="description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Revisiting Wolff’s Wading Birds {# wolff} | Systems Ethology" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  <meta name="github-repo" content="byandell/ewing_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Revisiting Wolff’s Wading Birds {# wolff} | Systems Ethology" />
+  
+  <meta name="twitter:description" content="This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook." />
+  
+
+<meta name="author" content="Bland Ewing, Brian S Yandell, James F Barbieri, Robert F Luck, Lisa D Forster" />
+
+
+<meta name="date" content="2026-04-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="biology-of-red-scale-and-its-parasitoids-redscale.html"/>
+<link rel="next" href="valid.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative Population Ethology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="qpe.html"><a href="qpe.html"><i class="fa fa-check"></i><b>1</b> Why Quantitative Population Ethology?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="qpe.html"><a href="qpe.html#maleable-tools-for-the-field-biologists"><i class="fa fa-check"></i><b>1.1</b> Maleable Tools for the Field Biologists</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="qpe.html"><a href="qpe.html#tying-simulations-to-field-data"><i class="fa fa-check"></i><b>1.1.1</b> Tying simulations to field data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="qpe.html"><a href="qpe.html#simulating-millions-of-organisms"><i class="fa fa-check"></i><b>1.2</b> Simulating Millions of Organisms</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="qpe.html"><a href="qpe.html#limitations-of-brute-force-computing"><i class="fa fa-check"></i><b>1.2.1</b> Limitations of brute force computing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="qpe.html"><a href="qpe.html#loose-coupling-of-model-cascades"><i class="fa fa-check"></i><b>1.2.2</b> Loose coupling of model cascades</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="qpe.html"><a href="qpe.html#from-individual-behavior-to-evolution"><i class="fa fa-check"></i><b>1.3</b> From Individual Behavior to Evolution</a></li>
+<li class="chapter" data-level="1.4" data-path="qpe.html"><a href="qpe.html#discussion-from-qpe"><i class="fa fa-check"></i><b>1.4</b> Discussion from QPE</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="classical.html"><a href="classical.html"><i class="fa fa-check"></i><b>2</b> Limitations of Classical Models</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="classical.html"><a href="classical.html#mathematical-biology"><i class="fa fa-check"></i><b>2.1</b> Mathematical Biology</a></li>
+<li class="chapter" data-level="2.2" data-path="classical.html"><a href="classical.html#biology-vs.-physics"><i class="fa fa-check"></i><b>2.2</b> Biology vs. Physics</a></li>
+<li class="chapter" data-level="2.3" data-path="classical.html"><a href="classical.html#predator-prey-models"><i class="fa fa-check"></i><b>2.3</b> Predator-Prey Models</a></li>
+<li class="chapter" data-level="2.4" data-path="classical.html"><a href="classical.html#classical-differential-equation-models"><i class="fa fa-check"></i><b>2.4</b> Classical Differential Equation Models</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="classical.html"><a href="classical.html#early-work-the-holling-predation-studies"><i class="fa fa-check"></i><b>2.4.1</b> Early Work: The Holling Predation Studies</a></li>
+<li class="chapter" data-level="2.4.2" data-path="classical.html"><a href="classical.html#lotka-volterra-leslie-matrices"><i class="fa fa-check"></i><b>2.4.2</b> Lotka-Volterra, Leslie matrices</a></li>
+<li class="chapter" data-level="2.4.3" data-path="classical.html"><a href="classical.html#time-and-phase-space"><i class="fa fa-check"></i><b>2.4.3</b> Time and phase space</a></li>
+<li class="chapter" data-level="2.4.4" data-path="classical.html"><a href="classical.html#stable-cycles-and-chaos"><i class="fa fa-check"></i><b>2.4.4</b> Stable cycles and chaos</a></li>
+<li class="chapter" data-level="2.4.5" data-path="classical.html"><a href="classical.html#quadratic-and-linear-equations-in-optimization-research"><i class="fa fa-check"></i><b>2.4.5</b> Quadratic and Linear Equations in Optimization Research</a></li>
+<li class="chapter" data-level="2.4.6" data-path="classical.html"><a href="classical.html#limitations"><i class="fa fa-check"></i><b>2.4.6</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="classical.html"><a href="classical.html#life-tables-and-competing-risks"><i class="fa fa-check"></i><b>2.5</b> Life tables and competing risks</a></li>
+<li class="chapter" data-level="2.6" data-path="classical.html"><a href="classical.html#synchronized-generations"><i class="fa fa-check"></i><b>2.6</b> Synchronized generations</a></li>
+<li class="chapter" data-level="2.7" data-path="classical.html"><a href="classical.html#time-driven-simulation-models"><i class="fa fa-check"></i><b>2.7</b> Time Driven Simulation Models</a></li>
+<li class="chapter" data-level="2.8" data-path="classical.html"><a href="classical.html#population-size-continuous-or-discrete"><i class="fa fa-check"></i><b>2.8</b> Population size: continuous or discrete</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="classical.html"><a href="classical.html#time-almost-always-one-unit"><i class="fa fa-check"></i><b>2.8.1</b> Time almost always one unit</a></li>
+<li class="chapter" data-level="2.8.2" data-path="classical.html"><a href="classical.html#stochastic-dynamic-systems"><i class="fa fa-check"></i><b>2.8.2</b> Stochastic dynamic systems</a></li>
+<li class="chapter" data-level="2.8.3" data-path="classical.html"><a href="classical.html#discrete-time-stochastic-petri-nets"><i class="fa fa-check"></i><b>2.8.3</b> Discrete time stochastic Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="classical.html"><a href="classical.html#event-driven-petri-nets"><i class="fa fa-check"></i><b>2.9</b> Event-driven Petri nets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="field-biologists-and-the-collection-of-data-field.html"><a href="field-biologists-and-the-collection-of-data-field.html"><i class="fa fa-check"></i><b>3</b> Field Biologists and the Collection of Data {#field}}</a></li>
+<li class="chapter" data-level="4" data-path="prob.html"><a href="prob.html"><i class="fa fa-check"></i><b>4</b> Probabilistic Nature of Individual Behavior</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="prob.html"><a href="prob.html#properties-of-an-individual"><i class="fa fa-check"></i><b>4.1</b> Properties of an individual</a></li>
+<li class="chapter" data-level="4.2" data-path="prob.html"><a href="prob.html#interactions-among-individuals-in-community"><i class="fa fa-check"></i><b>4.2</b> Interactions among individuals in community</a></li>
+<li class="chapter" data-level="4.3" data-path="prob.html"><a href="prob.html#field-sampling-process"><i class="fa fa-check"></i><b>4.3</b> Field sampling process</a></li>
+<li class="chapter" data-level="4.4" data-path="prob.html"><a href="prob.html#quantization-of-eventsstates"><i class="fa fa-check"></i><b>4.4</b> Quantization of events/states</a></li>
+<li class="chapter" data-level="4.5" data-path="prob.html"><a href="prob.html#quantization-of-timespace"><i class="fa fa-check"></i><b>4.5</b> Quantization of time/space</a></li>
+<li class="chapter" data-level="4.6" data-path="prob.html"><a href="prob.html#heisenberg-uncertainty-principle"><i class="fa fa-check"></i><b>4.6</b> Heisenberg uncertainty principle</a></li>
+<li class="chapter" data-level="4.7" data-path="prob.html"><a href="prob.html#games-of-skill-and-chance"><i class="fa fa-check"></i><b>4.7</b> Games of Skill and Chance</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="prob.html"><a href="prob.html#backgammon"><i class="fa fa-check"></i><b>4.7.1</b> Backgammon</a></li>
+<li class="chapter" data-level="4.7.2" data-path="prob.html"><a href="prob.html#bridge"><i class="fa fa-check"></i><b>4.7.2</b> Bridge</a></li>
+<li class="chapter" data-level="4.7.3" data-path="prob.html"><a href="prob.html#chess"><i class="fa fa-check"></i><b>4.7.3</b> Chess</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="event.html"><a href="event.html"><i class="fa fa-check"></i><b>5</b> Event-Driven Competing Risks Structure</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="event.html"><a href="event.html#event-driven-considerations-for-living-systems"><i class="fa fa-check"></i><b>5.1</b> Event-Driven Considerations for Living Systems</a></li>
+<li class="chapter" data-level="5.2" data-path="event.html"><a href="event.html#minimization-structure-within-across-individuals"><i class="fa fa-check"></i><b>5.2</b> Minimization structure within, across individuals</a></li>
+<li class="chapter" data-level="5.3" data-path="event.html"><a href="event.html#modelling-event-to-event"><i class="fa fa-check"></i><b>5.3</b> Modelling event to event</a></li>
+<li class="chapter" data-level="5.4" data-path="event.html"><a href="event.html#non-homogeneous-poisson-process-rebuilt-at-every-event"><i class="fa fa-check"></i><b>5.4</b> Non-homogeneous Poisson process rebuilt at every event</a></li>
+<li class="chapter" data-level="5.5" data-path="event.html"><a href="event.html#event-span-resolution"><i class="fa fa-check"></i><b>5.5</b> Event, span, resolution</a></li>
+<li class="chapter" data-level="5.6" data-path="event.html"><a href="event.html#futureimmediatepending-events"><i class="fa fa-check"></i><b>5.6</b> Future/immediate/pending events</a></li>
+<li class="chapter" data-level="5.7" data-path="event.html"><a href="event.html#competing-risks-for-life-events"><i class="fa fa-check"></i><b>5.7</b> Competing Risks for Life Events</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="event.html"><a href="event.html#competing-risk-structure"><i class="fa fa-check"></i><b>5.7.1</b> Competing risk structure</a></li>
+<li class="chapter" data-level="5.7.2" data-path="event.html"><a href="event.html#time-depends-on-events"><i class="fa fa-check"></i><b>5.7.2</b> Time depends on events</a></li>
+<li class="chapter" data-level="5.7.3" data-path="event.html"><a href="event.html#event-structure-for-individual"><i class="fa fa-check"></i><b>5.7.3</b> Event structure for individual</a></li>
+<li class="chapter" data-level="5.7.4" data-path="event.html"><a href="event.html#five-dimensional-parameterization"><i class="fa fa-check"></i><b>5.7.4</b> Five-dimensional parameterization</a></li>
+<li class="chapter" data-level="5.7.5" data-path="event.html"><a href="event.html#handling-immediate-events"><i class="fa fa-check"></i><b>5.7.5</b> Handling immediate events</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sim.html"><a href="sim.html"><i class="fa fa-check"></i><b>6</b> Simulation Mechanics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sim.html"><a href="sim.html#choice-of-modeling-system"><i class="fa fa-check"></i><b>6.1</b> Choice of Modeling System</a></li>
+<li class="chapter" data-level="6.2" data-path="sim.html"><a href="sim.html#cubic-splines"><i class="fa fa-check"></i><b>6.2</b> Cubic splines</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="sim.html"><a href="sim.html#time-to-event-based-on-data-or-intuition"><i class="fa fa-check"></i><b>6.2.1</b> Time to event based on data or intuition</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sim.html"><a href="sim.html#translating-time-to-degree-days-and-back"><i class="fa fa-check"></i><b>6.2.2</b> Translating time to degree-days and back</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sim.html"><a href="sim.html#spatial-components"><i class="fa fa-check"></i><b>6.3</b> Spatial components</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="sim.html"><a href="sim.html#tridiagonal-coordinate-system"><i class="fa fa-check"></i><b>6.3.1</b> Tridiagonal coordinate system</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sim.html"><a href="sim.html#sierpinski-gasket"><i class="fa fa-check"></i><b>6.3.2</b> Sierpinski gasket</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sim.html"><a href="sim.html#icosohedrontriangular-cylinder-for-objects"><i class="fa fa-check"></i><b>6.3.3</b> Icosohedron/triangular cylinder for objects</a></li>
+<li class="chapter" data-level="6.3.4" data-path="sim.html"><a href="sim.html#smooth-integration-between-triangles"><i class="fa fa-check"></i><b>6.3.4</b> Smooth integration between triangles</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="sim.html"><a href="sim.html#priority-queues"><i class="fa fa-check"></i><b>6.4</b> Priority queues</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="sim.html"><a href="sim.html#partial-ordering-of-individuals-based-on-next-future-event"><i class="fa fa-check"></i><b>6.4.1</b> Partial ordering of individuals based on next future event</a></li>
+<li class="chapter" data-level="6.4.2" data-path="sim.html"><a href="sim.html#dynamic-storage-allocation"><i class="fa fa-check"></i><b>6.4.2</b> Dynamic storage allocation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sim.html"><a href="sim.html#pseudo-randomization"><i class="fa fa-check"></i><b>6.5</b> Pseudo-Randomization</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="sim.html"><a href="sim.html#generalized-feedback-shift-registers"><i class="fa fa-check"></i><b>6.5.1</b> Generalized feedback shift registers</a></li>
+<li class="chapter" data-level="6.5.2" data-path="sim.html"><a href="sim.html#exponential-random-values"><i class="fa fa-check"></i><b>6.5.2</b> Exponential random values</a></li>
+<li class="chapter" data-level="6.5.3" data-path="sim.html"><a href="sim.html#sierpinski-gasket-order-direction"><i class="fa fa-check"></i><b>6.5.3</b> Sierpinski gasket: order, direction</a></li>
+<li class="chapter" data-level="6.5.4" data-path="sim.html"><a href="sim.html#fractal-nature-of-spatial-search-algorithms"><i class="fa fa-check"></i><b>6.5.4</b> Fractal nature of spatial search algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="sim.html"><a href="sim.html#curse-of-dimensionality"><i class="fa fa-check"></i><b>6.6</b> Curse of Dimensionality</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="sim.html"><a href="sim.html#calculations-linear-in-number-of-individuals-ave.-number-of-life-events"><i class="fa fa-check"></i><b>6.6.1</b> Calculations linear in number of individuals * ave. number of life events</a></li>
+<li class="chapter" data-level="6.6.2" data-path="sim.html"><a href="sim.html#ramping-up-from-hundreds-to-millions"><i class="fa fa-check"></i><b>6.6.2</b> Ramping up from hundreds to millions</a></li>
+<li class="chapter" data-level="6.6.3" data-path="sim.html"><a href="sim.html#quasi-parallel-computation"><i class="fa fa-check"></i><b>6.6.3</b> Quasi-parallel computation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="sim.html"><a href="sim.html#efficient-use-of-supercomputer-clusters"><i class="fa fa-check"></i><b>6.6.4</b> Efficient use of supercomputer clusters</a></li>
+<li class="chapter" data-level="6.6.5" data-path="sim.html"><a href="sim.html#loosely-connected-communities"><i class="fa fa-check"></i><b>6.6.5</b> Loosely connected communities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="sim.html"><a href="sim.html#future-considerations"><i class="fa fa-check"></i><b>6.7</b> Future Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Data Integration</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#sample-splitter-to-count-insects"><i class="fa fa-check"></i><b>7.1</b> Sample splitter to count insects</a></li>
+<li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#organization-of-data-in-relational-database"><i class="fa fa-check"></i><b>7.2</b> Organization of data in relational database</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data.html"><a href="data.html#access-postgresql"><i class="fa fa-check"></i><b>7.2.1</b> Access, PostgresQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data.html"><a href="data.html#beyond-h5-used-for-satellite-images-microarray-data"><i class="fa fa-check"></i><b>7.2.2</b> Beyond: H5(?) used for satellite images, microarray data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#tying-data-to-events"><i class="fa fa-check"></i><b>7.3</b> Tying data to events</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html"><i class="fa fa-check"></i><b>8</b> Biology of Red Scale and its Parasitoids {# redscale}</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#detailed-life-histories"><i class="fa fa-check"></i><b>8.1</b> Detailed life histories</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#red-scale-life-history"><i class="fa fa-check"></i><b>8.1.1</b> Red Scale Life History</a></li>
+<li class="chapter" data-level="8.1.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#aphytis-life-history"><i class="fa fa-check"></i><b>8.1.2</b> Aphytis Life History</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#interaction-events-endo--ecto--hyper-parasitism"><i class="fa fa-check"></i><b>8.2</b> Interaction events: endo-, ecto-, hyper-parasitism</a></li>
+<li class="chapter" data-level="8.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#diurnal-and-degree-day-effects-seasonal-effects"><i class="fa fa-check"></i><b>8.3</b> Diurnal and degree-day effects; seasonal effects</a></li>
+<li class="chapter" data-level="8.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#position-in-tree"><i class="fa fa-check"></i><b>8.4</b> Position in tree</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#orangebranchleaf"><i class="fa fa-check"></i><b>8.4.1</b> Orange/branch/leaf</a></li>
+<li class="chapter" data-level="8.4.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#exteriormain-trunk"><i class="fa fa-check"></i><b>8.4.2</b> Exterior/main trunk</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#search-algorithms"><i class="fa fa-check"></i><b>8.5</b> Search algorithms</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#parasite-for-host"><i class="fa fa-check"></i><b>8.5.1</b> Parasite for host</a></li>
+<li class="chapter" data-level="8.5.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#host-for-substrate"><i class="fa fa-check"></i><b>8.5.2</b> Host for substrate</a></li>
+<li class="chapter" data-level="8.5.3" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#local-vs.-long-distance-search"><i class="fa fa-check"></i><b>8.5.3</b> Local vs. long distance search</a></li>
+<li class="chapter" data-level="8.5.4" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations"><i class="fa fa-check"></i><b>8.5.4</b> Simulations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#simulations-from-qpe-paper"><i class="fa fa-check"></i><b>8.6</b> Simulations from QPE Paper</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-span-and-resolution"><i class="fa fa-check"></i><b>8.6.1</b> Model Span and Resolution</a></li>
+<li class="chapter" data-level="8.6.2" data-path="biology-of-red-scale-and-its-parasitoids-redscale.html"><a href="biology-of-red-scale-and-its-parasitoids-redscale.html#model-results"><i class="fa fa-check"></i><b>8.6.2</b> Model Results</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="revisiting-wolffs-wading-birds-wolff.html"><a href="revisiting-wolffs-wading-birds-wolff.html"><i class="fa fa-check"></i><b>9</b> Revisiting Wolff’s Wading Birds {# wolff}</a></li>
+<li class="chapter" data-level="10" data-path="valid.html"><a href="valid.html"><i class="fa fa-check"></i><b>10</b> Validation and Sensitivity Testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="valid.html"><a href="valid.html#criteria-for-model-development"><i class="fa fa-check"></i><b>10.1</b> Criteria for Model Development</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="valid.html"><a href="valid.html#explained-variation-r2"><i class="fa fa-check"></i><b>10.1.1</b> Explained Variation <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="valid.html"><a href="valid.html#attribute-inclusionexclusion-significance-level"><i class="fa fa-check"></i><b>10.1.2</b> Attribute inclusion/exclusion significance level</a></li>
+<li class="chapter" data-level="10.1.3" data-path="valid.html"><a href="valid.html#linear-and-non-linear-equations"><i class="fa fa-check"></i><b>10.1.3</b> Linear and non-linear equations</a></li>
+<li class="chapter" data-level="10.1.4" data-path="valid.html"><a href="valid.html#parsimony"><i class="fa fa-check"></i><b>10.1.4</b> Parsimony</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="valid.html"><a href="valid.html#model-diagnostic-tests"><i class="fa fa-check"></i><b>10.2</b> Model diagnostic tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="code.html"><a href="code.html"><i class="fa fa-check"></i><b>11</b> Reusable, Extensible Simulation Code</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="code.html"><a href="code.html#tabular-data"><i class="fa fa-check"></i><b>11.1</b> Tabular data</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="code.html"><a href="code.html#organism-features"><i class="fa fa-check"></i><b>11.1.1</b> Organism Features</a></li>
+<li class="chapter" data-level="11.1.2" data-path="code.html"><a href="code.html#organism-future-events"><i class="fa fa-check"></i><b>11.1.2</b> Organism Future Events</a></li>
+<li class="chapter" data-level="11.1.3" data-path="code.html"><a href="code.html#interactions-among-organisms"><i class="fa fa-check"></i><b>11.1.3</b> Interactions among Organisms</a></li>
+<li class="chapter" data-level="11.1.4" data-path="code.html"><a href="code.html#organism-profiles"><i class="fa fa-check"></i><b>11.1.4</b> Organism profiles</a></li>
+<li class="chapter" data-level="11.1.5" data-path="code.html"><a href="code.html#species-life-histories"><i class="fa fa-check"></i><b>11.1.5</b> Species life histories</a></li>
+<li class="chapter" data-level="11.1.6" data-path="code.html"><a href="code.html#interaction-processes"><i class="fa fa-check"></i><b>11.1.6</b> Interaction processes</a></li>
+<li class="chapter" data-level="11.1.7" data-path="code.html"><a href="code.html#spatial-movement-on-icosohedron-large-substrate-structures"><i class="fa fa-check"></i><b>11.1.7</b> Spatial movement on icosohedron, large substrate structures</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="code.html"><a href="code.html#event-subroutines"><i class="fa fa-check"></i><b>11.2</b> Event subroutines</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="code.html"><a href="code.html#competing-risk-structure-1"><i class="fa fa-check"></i><b>11.2.1</b> Competing Risk Structure</a></li>
+<li class="chapter" data-level="11.2.2" data-path="code.html"><a href="code.html#birth-death"><i class="fa fa-check"></i><b>11.2.2</b> Birth, death</a></li>
+<li class="chapter" data-level="11.2.3" data-path="code.html"><a href="code.html#life-stages"><i class="fa fa-check"></i><b>11.2.3</b> Life stages</a></li>
+<li class="chapter" data-level="11.2.4" data-path="code.html"><a href="code.html#search-feed"><i class="fa fa-check"></i><b>11.2.4</b> Search, feed</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="code.html"><a href="code.html#bayesian-logic-programming"><i class="fa fa-check"></i><b>11.3</b> Bayesian logic programming</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="code.html"><a href="code.html#combining-bayesian-networks-and-prolog"><i class="fa fa-check"></i><b>11.3.1</b> Combining Bayesian networks and ProLog</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="fini.html"><a href="fini.html"><i class="fa fa-check"></i><b>12</b> Summary and Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Systems Ethology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="revisiting-wolffs-wading-birds-wolff" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Revisiting Wolff’s Wading Birds {# wolff}<a href="revisiting-wolffs-wading-birds-wolff.html#revisiting-wolffs-wading-birds-wolff" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="biology-of-red-scale-and-its-parasitoids-redscale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="valid.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/09-wolff.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["ewing_book.pdf", "ewing_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -49,5 +49,4 @@ rsconnect/
 *.Rproj
 _SOURCE
 bookdown-demo_files/
-*.html
 
