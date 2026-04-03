@@ -7,7 +7,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: byandell/ewing_book
+github-repo: byandell/SystemsEthology
 description: "This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing.
     The output format is bookdown::gitbook."
 author: Bland Ewing^[Deceased], Brian S Yandell^[Professor Emeritus, Statistics Department, University of Wisconsin-Madison], James F Barbieri^[Retired, Advanced Systems Development, NAWC-WPNS], Robert F Luck^[Deceased, Entomology Department, University of California-Riverside], Lisa D Forster^[Entomology Department, University of California-Riverside]
