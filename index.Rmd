@@ -1,5 +1,5 @@
 --- 
-title: "Quantitative Population Ethology"
+title: "Systems Ethology"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,7 +8,8 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: byandell/ewing_book
-description: "This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing. The output format is bookdown::gitbook."
+description: "This is a bookdown version of Quantitative Population Ethology inspired by writing of Bland Ewing.
+    The output format is bookdown::gitbook."
 author: Bland Ewing^[Deceased], Brian S Yandell^[Professor Emeritus, Statistics Department, University of Wisconsin-Madison], James F Barbieri^[Retired, Advanced Systems Development, NAWC-WPNS], Robert F Luck^[Deceased, Entomology Department, University of California-Riverside], Lisa D Forster^[Entomology Department, University of California-Riverside]
 ---
 
@@ -16,8 +17,10 @@ author: Bland Ewing^[Deceased], Brian S Yandell^[Professor Emeritus, Statistics 
 
 The work contained in this monograph represents the contributions of
 Bland Ewing to a field he originally described as `population
-ethology'. The original unpublished manuscripts are all over 25 years
-old. Nevertheless, the ideas fit nicely with current theories about
+ethology' or 'quantitative population ethology', which
+I now call 'systems ethology'.
+The original unpublished manuscripts are all over 25 years old.
+Nevertheless, the ideas fit nicely with current theories about
 population dynamics, with the present strong interest in Markov chain
 Monte Carlo methods for simulation, with today's fast desktop
 computing environments, and with efforts in many areas of

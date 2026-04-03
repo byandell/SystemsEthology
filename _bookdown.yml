@@ -3,3 +3,18 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+
+rmd_files: ["index.Rmd",
+            "01-qpe.Rmd",
+            "02-classical.Rmd",
+            "03-field.Rmd",
+            "04-prob.Rmd",
+            "05-event.Rmd",
+            "06-sim.Rmd",
+            "07-data.Rmd",
+            "08-redscale.Rmd",
+            "09-wolff.Rmd",
+            "10-valid.Rmd",
+            "11-code.Rmd",
+            "12-fini.Rmd"]
+output_dir: "docs"
